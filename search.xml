@@ -71,39 +71,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DOCTYPE和浏览器渲染模式</title>
-    <url>/2022/08/20/02_DOCTYPE/</url>
-    <content><![CDATA[<p>H5<br>    1.DOCTYPE和浏览器渲染模式<br>        DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）<br>        通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。<br>        因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，<br>        不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析</p>
-<pre><code>    到目前为止，各浏览器主要包含了三种模式。在 HTML5 草案中，更加明确的规定了模式的定义：
-      	 传统名称	    				  		HTML5 草案名称				document.compatMode 返回值
-    standards mode(strict mode) 			no-quirks mode				CSS1Compat
-    almost standards mode					limited-quirks mode			CSS1Compat
-    quirks mode								quirks mode					BackCompat
-</code></pre>
-<p>​	<br>​		document.compatMode<br>​			 document.compatMode 属性最初由微软在 IE 中创造出来，这是一个只读的属性，返回一个字符串，<br>​			 只可能存在两种返回值：<br>​				BackCompat：标准兼容模式未开启（怪异模式）<br>​				CSS1Compat：标准兼容模式已开启（标准模式）<br>​	<br>        在现代主流浏览器中，其实怪异模式的渲染和标准与几乎标准间没有太大的差别（ie9+ 谷歌 火狐 …）<br>        ie5.5之前都是ie自己的渲染模式，怪异模式<br>        ie6才开始慢慢支持标准，标准模式，在ie6 中怪异和标准模式的区别最大<br>        ie7 8 9都是基于标准模式升级的，他们理论上存在怪异模式</p>
-<pre><code>    HTML5提供的&lt;DOCTYPE html&gt;是标准模式，向后兼容的,等同于开启了标准模式，
-    那么浏览器就得老老实实的按照W3C的 标准解析渲染页面
-    一个不含任何 DOCTYPE 的网页将会以 怪异(quirks) 模式渲染。
-</code></pre>
-<p>​		<br>​		<br>​		<br>​		<br>​	2.DTD<br>​		<br>​			当 doctype 信息如上时，表明该页面是遵守了 HTML5 规范的，浏览器会选择 Standards Mode，这种 doctype 是最推荐的一种，<br>​		我们平时设计页面都应该加上这一个 doctype。<br>​			HTML5 不基于 SGML,所以不需要引用 DTD,浏览器内部本身有对标签进行解析渲染验证的模块<br>​		<br>        <br>        当 doctype 如上时，浏览器同样会选择 Standards Mode，虽然和第一种 doctype 有一些区别，但是几乎可以认为是一样的。</p>
-<pre><code>    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
-    当 doctype 如上时，浏览器会选择 Almost Standards Mode，渲染时和标准会有一些区别
-
-    当 doctype 缺失的时候，浏览器会选择 Quirks Mode，这是非常不推荐的方式，
-    当 doctype上面有注释，标签或者空行时，某些浏览器都会认为该页面不具有doctype。
-    我们应该尽量避免 Quirks Mode，这对一个 web 应用是非常不利的地方。
-</code></pre>
-<p>​	<br>​	<br>​	<br>​		<br>​	4.每种doctype在浏览器中对应的渲染模式<br>​		<a href="https://en.wikipedia.org/wiki/Quirks_mode">https://en.wikipedia.org/wiki/Quirks_mode</a></p>
-<p>​				<br>​	<br>​	</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H5音频视频标签</title>
     <url>/2022/08/16/01_%E9%9F%B3%E9%A2%91&amp;%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[<pre><code>大家都有在网页中浏览视频的经历，但在Html5之前，对视频乃至音频都还没有一个标准
@@ -188,79 +155,6 @@ RealPlayer 或者 Flash。浏览器很好的整合了这些插件，你完全意
         ffmpeg -i test.mp3 -c:a aac -ac 2 -b:a 160k OUTPUT.aac
 </code></pre>
 <p>​	<br>​	<br>​	</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5概述 根元素</title>
-    <url>/2022/08/19/02_%E6%A0%B9%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<pre><code>H4中的根元素:
-    &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
-    
-    首先这个标记没有任何问题，你喜欢的话,那就背下来继续用。它是有效的。
-    但这个标记中的很多字节在Html5中我们都可以省略了
-    
-    xmlns:这是XHTML1.0的东西，
-        它的意思是在这个页面上的元素都位于http://www.w3.org/1999/xhtml这个命名空间内
-        但是HTML5中的每个元素都具有这个命名空间，不需要在页面上再显示指出
-</code></pre>
-<p>​			<br>    H5中的根元素<br>        </p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5_canvas绘制矩形</title>
-    <url>/2022/08/20/02_canvas(%E7%BB%98%E5%88%B6%E7%9F%A9%E5%BD%A2)/</url>
-    <content><![CDATA[<pre><code>HTML中的元素canvas只支持一种原生的图形绘制：矩形。所有其他的图形的绘制都至少需要生成一条路径
-
-1.绘制矩形
-    canvas提供了三种方法绘制矩形：
-        ----&gt;绘制一个填充的矩形（填充色默认为黑色）
-            fillRect(x, y, width, height)
-        ----&gt;绘制一个矩形的边框（默认边框为:一像素实心黑色）
-            strokeRect(x, y, width, height)
-        ----&gt;清除指定矩形区域，让清除部分完全透明。	
-            clearRect(x, y, width, height)
-            
-    x与y指定了在canvas画布上所绘制的矩形的左上角（相对于原点）的坐标。
-    width和height设置矩形的尺寸。（存在边框的话，边框会在width上占据一个边框的宽度，height同理）
-
-2.strokeRect时，边框像素渲染问题
-    按理渲染出的边框应该是1px的，
-    canvas在渲染矩形边框时，边框宽度是平均分在偏移位置的两侧。
-        context.strokeRect(10,10,50,50)
-            :边框会渲染在10.5 和 9.5之间,浏览器是不会让一个像素只用自己的一半的
-              相当于边框会渲染在9到11之间
-        context.strokeRect(10.5,10.5,50,50)
-            :边框会渲染在10到11之间
-
-3.添加样式和颜色
-    fillStyle   :设置图形的填充颜色。
-    strokeStyle :设置图形轮廓的颜色。
-        默认情况下，线条和填充颜色都是黑色（CSS 颜色值 #000000）
-    lineWidth : 这个属性设置当前绘线的粗细。属性值必须为正数。
-        描述线段宽度的数字。 0、 负数、 Infinity 和 NaN 会被忽略。
-        默认值是1.0。
-        
-4.lineWidth &amp; 覆盖渲染
-
-5.lineJoin
-    设定线条与线条间接合处的样式（默认是 miter）
-    round : 圆角
-    bevel : 斜角
-    miter : 直角
-</code></pre>
-<p>​		<br>​		</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -391,6 +285,140 @@ load()  :  重新加载媒体
       </tags>
   </entry>
   <entry>
+    <title>DOCTYPE和浏览器渲染模式</title>
+    <url>/2022/08/20/02_DOCTYPE/</url>
+    <content><![CDATA[<p>H5<br>    1.DOCTYPE和浏览器渲染模式<br>        DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）<br>        通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。<br>        因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，<br>        不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析</p>
+<pre><code>    到目前为止，各浏览器主要包含了三种模式。在 HTML5 草案中，更加明确的规定了模式的定义：
+      	 传统名称	    				  		HTML5 草案名称				document.compatMode 返回值
+    standards mode(strict mode) 			no-quirks mode				CSS1Compat
+    almost standards mode					limited-quirks mode			CSS1Compat
+    quirks mode								quirks mode					BackCompat
+</code></pre>
+<p>​	<br>​		document.compatMode<br>​			 document.compatMode 属性最初由微软在 IE 中创造出来，这是一个只读的属性，返回一个字符串，<br>​			 只可能存在两种返回值：<br>​				BackCompat：标准兼容模式未开启（怪异模式）<br>​				CSS1Compat：标准兼容模式已开启（标准模式）<br>​	<br>        在现代主流浏览器中，其实怪异模式的渲染和标准与几乎标准间没有太大的差别（ie9+ 谷歌 火狐 …）<br>        ie5.5之前都是ie自己的渲染模式，怪异模式<br>        ie6才开始慢慢支持标准，标准模式，在ie6 中怪异和标准模式的区别最大<br>        ie7 8 9都是基于标准模式升级的，他们理论上存在怪异模式</p>
+<pre><code>    HTML5提供的&lt;DOCTYPE html&gt;是标准模式，向后兼容的,等同于开启了标准模式，
+    那么浏览器就得老老实实的按照W3C的 标准解析渲染页面
+    一个不含任何 DOCTYPE 的网页将会以 怪异(quirks) 模式渲染。
+</code></pre>
+<p>​		<br>​		<br>​		<br>​		<br>​	2.DTD<br>​		<br>​			当 doctype 信息如上时，表明该页面是遵守了 HTML5 规范的，浏览器会选择 Standards Mode，这种 doctype 是最推荐的一种，<br>​		我们平时设计页面都应该加上这一个 doctype。<br>​			HTML5 不基于 SGML,所以不需要引用 DTD,浏览器内部本身有对标签进行解析渲染验证的模块<br>​		<br>        <br>        当 doctype 如上时，浏览器同样会选择 Standards Mode，虽然和第一种 doctype 有一些区别，但是几乎可以认为是一样的。</p>
+<pre><code>    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+    当 doctype 如上时，浏览器会选择 Almost Standards Mode，渲染时和标准会有一些区别
+
+    当 doctype 缺失的时候，浏览器会选择 Quirks Mode，这是非常不推荐的方式，
+    当 doctype上面有注释，标签或者空行时，某些浏览器都会认为该页面不具有doctype。
+    我们应该尽量避免 Quirks Mode，这对一个 web 应用是非常不利的地方。
+</code></pre>
+<p>​	<br>​	<br>​	<br>​		<br>​	4.每种doctype在浏览器中对应的渲染模式<br>​		<a href="https://en.wikipedia.org/wiki/Quirks_mode">https://en.wikipedia.org/wiki/Quirks_mode</a></p>
+<p>​				<br>​	<br>​	</p>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5_canvas绘制矩形</title>
+    <url>/2022/08/20/02_canvas(%E7%BB%98%E5%88%B6%E7%9F%A9%E5%BD%A2)/</url>
+    <content><![CDATA[<pre><code>HTML中的元素canvas只支持一种原生的图形绘制：矩形。所有其他的图形的绘制都至少需要生成一条路径
+
+1.绘制矩形
+    canvas提供了三种方法绘制矩形：
+        ----&gt;绘制一个填充的矩形（填充色默认为黑色）
+            fillRect(x, y, width, height)
+        ----&gt;绘制一个矩形的边框（默认边框为:一像素实心黑色）
+            strokeRect(x, y, width, height)
+        ----&gt;清除指定矩形区域，让清除部分完全透明。	
+            clearRect(x, y, width, height)
+            
+    x与y指定了在canvas画布上所绘制的矩形的左上角（相对于原点）的坐标。
+    width和height设置矩形的尺寸。（存在边框的话，边框会在width上占据一个边框的宽度，height同理）
+
+2.strokeRect时，边框像素渲染问题
+    按理渲染出的边框应该是1px的，
+    canvas在渲染矩形边框时，边框宽度是平均分在偏移位置的两侧。
+        context.strokeRect(10,10,50,50)
+            :边框会渲染在10.5 和 9.5之间,浏览器是不会让一个像素只用自己的一半的
+              相当于边框会渲染在9到11之间
+        context.strokeRect(10.5,10.5,50,50)
+            :边框会渲染在10到11之间
+
+3.添加样式和颜色
+    fillStyle   :设置图形的填充颜色。
+    strokeStyle :设置图形轮廓的颜色。
+        默认情况下，线条和填充颜色都是黑色（CSS 颜色值 #000000）
+    lineWidth : 这个属性设置当前绘线的粗细。属性值必须为正数。
+        描述线段宽度的数字。 0、 负数、 Infinity 和 NaN 会被忽略。
+        默认值是1.0。
+        
+4.lineWidth &amp; 覆盖渲染
+
+5.lineJoin
+    设定线条与线条间接合处的样式（默认是 miter）
+    round : 圆角
+    bevel : 斜角
+    miter : 直角
+</code></pre>
+<p>​		<br>​		</p>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5概述 根元素</title>
+    <url>/2022/08/19/02_%E6%A0%B9%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<pre><code>H4中的根元素:
+    &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+    
+    首先这个标记没有任何问题，你喜欢的话,那就背下来继续用。它是有效的。
+    但这个标记中的很多字节在Html5中我们都可以省略了
+    
+    xmlns:这是XHTML1.0的东西，
+        它的意思是在这个页面上的元素都位于http://www.w3.org/1999/xhtml这个命名空间内
+        但是HTML5中的每个元素都具有这个命名空间，不需要在页面上再显示指出
+</code></pre>
+<p>​			<br>    H5中的根元素<br>        </p>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5概述 head元素</title>
+    <url>/2022/08/20/03_head%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<pre><code>MIME类型:
+    每当浏览器请求一个页面时，web服务器会在发送实际页面内容之前，先发送一些头信息。
+    浏览器需要这些信息来决定如何解析随后的页面内容。最重要的是Content-Type
+    
+    比如: Content-Type:text/html
+    
+    text/html:即这个页面的"内容类型",或者称为MIME类型。这个头信息将唯一确定某个资源的本质是什么
+    也决定了它应该如何被呈现。
+    
+    图片也有自己的MIME类型		
+        jpg:image/jpeg   
+        png:image/png
+        
+    js也有自己的MIME类型，css也有自己的MIME类型，
+        任何资源都有自己的MIME类型，整个web都依靠MIME类型来运作
+</code></pre>
+<p>​			<br>​			<br>    <meta charset="UTF-8">:<br>        告诉浏览器你应该使用哪种编码来解析网页</p>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>H5表单</title>
     <url>/2022/08/18/02_%E7%96%AF%E7%8B%82%E7%9A%84%E8%A1%A8%E5%8D%95/</url>
     <content><![CDATA[<pre><code>Html5 Forms概述,在Html5中:
@@ -510,71 +538,6 @@ customError 不符合自定义验证返回true
       </tags>
   </entry>
   <entry>
-    <title>H5新增加标签</title>
-    <url>/2022/08/20/03_%E5%85%B6%E4%BB%96%E6%96%B0%E5%A2%9E%E6%A0%87%E7%AD%BE/</url>
-    <content><![CDATA[<pre><code>meter:用来显示已知范围的标量值或者分数值。
-    value:当前的数值。
-    min:值域的最小边界值。如果设置了，它必须比最大值要小。如果没设置，默认为0
-    max:值域的上限边界值。如果设置了，它必须比最小值要大。如果没设置，默认为1
-    low:定义了低值区间的上限值,如果设置了，它必须比最小值属性大，并且不能超过high值和最大值。未设置或者比最小值还要小时，其值即为最小值。
-    high:定义了高值区间的下限值。如果设置了，它必须小于最大值，同时必须大于low值和最小值。如果没有设置，或者比最大值还大，其值即为最大值。
-    optimum:这个属性用来指示最优/最佳取值。
-
-progress:用来显示一项任务的完成进度
-    max:该属性描述了这个progress元素所表示的任务一共需要完成多少工作.
-    value：该属性用来指定该进度条已完成的工作量.
-            如果没有value属性,则该进度条的进度为"不确定",
-            也就是说,进度条不会显示任何进度,你无法估计当前的工作会在何时完成
-</code></pre>
-<h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><pre><code>datalist:datalist会包含一组option元素，这些元素表示其表单控件的可选值
-            它的id必须要和input中的list一致
-
-details: 一个ui小部件，用户可以从其中检索附加信息。
-        open属性来控制附加信息的显示与隐藏
-summary:用作 一个&lt;details&gt;元素的一个内容摘要（标题）
-</code></pre>
-<h3 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h3><pre><code>ruby
-rt: 展示文字注音或字符注释。
-</code></pre>
-<h3 id="标记标签"><a href="#标记标签" class="headerlink" title="标记标签"></a>标记标签</h3><pre><code>marK:着重
-</code></pre>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5概述 head元素</title>
-    <url>/2022/08/20/03_head%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<pre><code>MIME类型:
-    每当浏览器请求一个页面时，web服务器会在发送实际页面内容之前，先发送一些头信息。
-    浏览器需要这些信息来决定如何解析随后的页面内容。最重要的是Content-Type
-    
-    比如: Content-Type:text/html
-    
-    text/html:即这个页面的"内容类型",或者称为MIME类型。这个头信息将唯一确定某个资源的本质是什么
-    也决定了它应该如何被呈现。
-    
-    图片也有自己的MIME类型		
-        jpg:image/jpeg   
-        png:image/png
-        
-    js也有自己的MIME类型，css也有自己的MIME类型，
-        任何资源都有自己的MIME类型，整个web都依靠MIME类型来运作
-</code></pre>
-<p>​			<br>​			<br>    <meta charset="UTF-8">:<br>        告诉浏览器你应该使用哪种编码来解析网页</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H5_canvas绘制路径</title>
     <url>/2022/08/20/03_canvas(%E7%BB%98%E5%88%B6%E8%B7%AF%E5%BE%84)/</url>
     <content><![CDATA[<pre><code>图形的基本元素是路径。路径是通过不同颜色和宽度的线段或曲线相连形成的不同形状的点的集合。
@@ -638,6 +601,69 @@ fill()
 如果没有保存状态，此方法不做任何改变。	
 </code></pre>
 <p>​		<br>​		</p>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5新增加标签</title>
+    <url>/2022/08/20/03_%E5%85%B6%E4%BB%96%E6%96%B0%E5%A2%9E%E6%A0%87%E7%AD%BE/</url>
+    <content><![CDATA[<pre><code>meter:用来显示已知范围的标量值或者分数值。
+    value:当前的数值。
+    min:值域的最小边界值。如果设置了，它必须比最大值要小。如果没设置，默认为0
+    max:值域的上限边界值。如果设置了，它必须比最小值要大。如果没设置，默认为1
+    low:定义了低值区间的上限值,如果设置了，它必须比最小值属性大，并且不能超过high值和最大值。未设置或者比最小值还要小时，其值即为最小值。
+    high:定义了高值区间的下限值。如果设置了，它必须小于最大值，同时必须大于low值和最小值。如果没有设置，或者比最大值还大，其值即为最大值。
+    optimum:这个属性用来指示最优/最佳取值。
+
+progress:用来显示一项任务的完成进度
+    max:该属性描述了这个progress元素所表示的任务一共需要完成多少工作.
+    value：该属性用来指定该进度条已完成的工作量.
+            如果没有value属性,则该进度条的进度为"不确定",
+            也就是说,进度条不会显示任何进度,你无法估计当前的工作会在何时完成
+</code></pre>
+<h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><pre><code>datalist:datalist会包含一组option元素，这些元素表示其表单控件的可选值
+            它的id必须要和input中的list一致
+
+details: 一个ui小部件，用户可以从其中检索附加信息。
+        open属性来控制附加信息的显示与隐藏
+summary:用作 一个&lt;details&gt;元素的一个内容摘要（标题）
+</code></pre>
+<h3 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h3><pre><code>ruby
+rt: 展示文字注音或字符注释。
+</code></pre>
+<h3 id="标记标签"><a href="#标记标签" class="headerlink" title="标记标签"></a>标记标签</h3><pre><code>marK:着重
+</code></pre>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5_canvas绘制圆形</title>
+    <url>/2022/08/20/04_canvas(%E7%BB%98%E5%88%B6%E5%9C%86%E5%BD%A2)/</url>
+    <content><![CDATA[<h3 id="角度与弧度的js表达式-radians-x3D-Math-PI-x2F-180-degrees。"><a href="#角度与弧度的js表达式-radians-x3D-Math-PI-x2F-180-degrees。" class="headerlink" title="角度与弧度的js表达式:radians=(Math.PI/180)*degrees。"></a>角度与弧度的js表达式:radians=(Math.PI/180)*degrees。</h3><h3 id="canvas绘制圆形"><a href="#canvas绘制圆形" class="headerlink" title="canvas绘制圆形"></a>canvas绘制圆形</h3><pre><code>arc(x, y, radius, startAngle, endAngle, anticlockwise)
+        画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，
+        按照anticlockwise给定的方向（默认为顺时针）来生成。
+        ture：逆时针
+        false:顺时针
+    
+    x,y为绘制圆弧所在圆上的圆心坐标
+    radius为半径
+    startAngle以及endAngle参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准
+    参数anticlockwise 为一个布尔值。为true时，是逆时针方向，否则顺时针方向。
+</code></pre>
+<h3 id="arcTo"><a href="#arcTo" class="headerlink" title="arcTo"></a>arcTo</h3><pre><code>arcTo(x1, y1, x2, y2, radius)
+根据给定的控制点和半径画一段圆弧
+肯定会从(x1 y1)  但不一定经过(x2 y2);(x2 y2)只是控制一个方向
+</code></pre>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -758,54 +784,15 @@ function removeClass(node,className){
       </tags>
   </entry>
   <entry>
-    <title>H5_canvas绘制圆形</title>
-    <url>/2022/08/20/04_canvas(%E7%BB%98%E5%88%B6%E5%9C%86%E5%BD%A2)/</url>
-    <content><![CDATA[<h3 id="角度与弧度的js表达式-radians-x3D-Math-PI-x2F-180-degrees。"><a href="#角度与弧度的js表达式-radians-x3D-Math-PI-x2F-180-degrees。" class="headerlink" title="角度与弧度的js表达式:radians=(Math.PI/180)*degrees。"></a>角度与弧度的js表达式:radians=(Math.PI/180)*degrees。</h3><h3 id="canvas绘制圆形"><a href="#canvas绘制圆形" class="headerlink" title="canvas绘制圆形"></a>canvas绘制圆形</h3><pre><code>arc(x, y, radius, startAngle, endAngle, anticlockwise)
-        画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，
-        按照anticlockwise给定的方向（默认为顺时针）来生成。
-        ture：逆时针
-        false:顺时针
-    
-    x,y为绘制圆弧所在圆上的圆心坐标
-    radius为半径
-    startAngle以及endAngle参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准
-    参数anticlockwise 为一个布尔值。为true时，是逆时针方向，否则顺时针方向。
+    <title>H5_canvas贝塞尔</title>
+    <url>/2022/08/20/05_canvas(%E8%B4%9D%E5%A1%9E%E5%B0%94)/</url>
+    <content><![CDATA[<h3 id="二次贝塞尔"><a href="#二次贝塞尔" class="headerlink" title="二次贝塞尔"></a>二次贝塞尔</h3><pre><code>quadraticCurveTo(cp1x, cp1y, x, y)
+    绘制二次贝塞尔曲线，cp1x,cp1y为一个控制点，x,y为结束点。
+    起始点为moveto时指定的点
 </code></pre>
-<h3 id="arcTo"><a href="#arcTo" class="headerlink" title="arcTo"></a>arcTo</h3><pre><code>arcTo(x1, y1, x2, y2, radius)
-根据给定的控制点和半径画一段圆弧
-肯定会从(x1 y1)  但不一定经过(x2 y2);(x2 y2)只是控制一个方向
-</code></pre>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5音频视频功能逻辑</title>
-    <url>/2022/08/20/04_%E5%8A%9F%E8%83%BD%E7%82%B9%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<pre><code>播放按钮点击时:
-    切换播放按钮的样式
-    控制视频的播放暂停
-        播放:控制进度条的前进(通过开启定时器来实现)
-        暂停:要关闭定时器不让进度条前进
-        
-停止按钮点击时
-    切换播放按钮的样式
-    控制视频暂停
-        暂停:要关闭定时器不让进度条前进
-    进度条重置为0
-    视频时间调整为0
-    
-拖拽时根据拖拽距离控制视频时间
-
-点击进度条时,根据点击位置控制视频时间
-    点击进度条时,默认就应该是播放操作
-    切换播放按钮的样式
-    控制视频的播放
-        :控制进度条的前进:通过开启定时器来实现
+<h3 id="三次贝塞尔"><a href="#三次贝塞尔" class="headerlink" title="三次贝塞尔"></a>三次贝塞尔</h3><pre><code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+    绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
+    起始点为moveto时指定的点
 </code></pre>
 ]]></content>
       <categories>
@@ -939,94 +926,6 @@ nav元素代表页面的导航链接区域。用于定义页面的主要导航�
       </tags>
   </entry>
   <entry>
-    <title>H5 canvas图片背景</title>
-    <url>/2022/08/20/07_canvas(%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87&amp;%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF)/</url>
-    <content><![CDATA[<h3 id="在canvas中插入图片-需要image对象"><a href="#在canvas中插入图片-需要image对象" class="headerlink" title="在canvas中插入图片(需要image对象)"></a>在canvas中插入图片(需要image对象)</h3><pre><code>1.canvas操作图片时，必须要等图片加载完才能操作
-2.drawImage(image, x, y, width, height)
-    其中 image 是 image 或者 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标。
-    这个方法多了2个参数：width 和 height，这两个参数用来控制 当像canvas画入时应该缩放的大小
-</code></pre>
-<h3 id="在canvas中设置背景-需要image对象"><a href="#在canvas中设置背景-需要image对象" class="headerlink" title="在canvas中设置背景(需要image对象)"></a>在canvas中设置背景(需要image对象)</h3><pre><code>1.createPattern(image, repetition)
-    image:图像源
-    epetition:
-        "repeat" 
-        "repeat-x" 
-        "repeat-y" 
-        "no-repeat" 
-        
-一般情况下，我们都会将createPattern返回的对象作为fillstyle的值
-</code></pre>
-<h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3><pre><code>canvas渐变（线性渐变）
-    createLinearGradient(x1, y1, x2, y2)
-            表示渐变的起点 (x1,y1) 与终点 (x2,y2)
-                
-    gradient.addColorStop(position, color)
-            gradient :createLinearGradient的返回值
-            addColorStop 方法接受 2 个参数，
-                position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。
-                                例如，0.5 表示颜色会出现在正中间。
-                color 参数必须是一个有效的 CSS 颜色值（如 #FFF， rgba(0,0,0,1)，等等）
-</code></pre>
-<p>​	<br>    canvas渐变（径向渐变）	<br>        createRadialGradient(x1, y1, r1, x2, y2, r2)<br>            前三个参数则定义另一个以(x1,y1) 为原点，半径为 r1 的圆，<br>            后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆。</p>
-<p>​		</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5_ canvas文本</title>
-    <url>/2022/08/20/08_canvas(%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC)/</url>
-    <content><![CDATA[<h3 id="在canvas中绘制文本"><a href="#在canvas中绘制文本" class="headerlink" title="在canvas中绘制文本"></a>在canvas中绘制文本</h3><pre><code>canvas 提供了两种方法来渲染文本:
-    fillText(text, x, y)
-        在指定的(x,y)位置填充指定的文本
-    strokeText(text, x, y)
-        在指定的(x,y)位置绘制文本边框
-</code></pre>
-<h3 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h3><pre><code>font = value
-    当前我们用来绘制文本的样式. 这个字符串使用和 CSS font 属性相同的语法. 
-    默认的字体是 10px sans-serif。
-    font属性在指定时，必须要有大小和字体 缺一不可
-    
-textAlign = value
-    文本对齐选项. 可选的值包括： left, right  center. 
-    left
-        文本左对齐。
-    right
-        文本右对齐。
-    center
-        文本居中对齐。
-        这里的textAlign="center"比较特殊。textAlign的值为center时候
-        文本的居中是基于你在fillText的时候所给的x的值，
-        也就是说文本一半在x的左边，一半在x的右边
-</code></pre>
-<p>​	<br>    textBaseline = value<br>        描述绘制文本时，当前文本基线的属性。<br>        top<br>            文本基线在文本块的顶部。<br>        middle<br>            文本基线在文本块的中间。<br>        bottom<br>            文本基线在文本块的底部。</p>
-<h3 id="measureText"><a href="#measureText" class="headerlink" title="measureText"></a>measureText</h3><pre><code>measureText() 方法返回一个 TextMetrics 对象，包含关于文本尺寸的信息（例如文本的宽度）
-</code></pre>
-<h3 id="canvas中文本水平垂直居中"><a href="#canvas中文本水平垂直居中" class="headerlink" title="canvas中文本水平垂直居中"></a>canvas中文本水平垂直居中</h3><h3 id="阴影-文本阴影-amp-盒模型阴影"><a href="#阴影-文本阴影-amp-盒模型阴影" class="headerlink" title="阴影(文本阴影&amp;盒模型阴影)"></a>阴影(文本阴影&amp;盒模型阴影)</h3><pre><code>shadowOffsetX = float
-    shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
-    它们默认都为 0。
-shadowOffsetY = float
-    shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
-    它们默认都为 0。
-shadowBlur = float
-    shadowBlur 用于设定阴影的模糊程度，其数值并不跟像素数量挂钩，也不受变换矩阵的影响，默认为 0。
-shadowColor = color(必需项)
-    shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色。
-</code></pre>
-<p>​	<br>​		</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H5_canvas变换</title>
     <url>/2022/08/20/06_canvas(%E5%8F%98%E6%8D%A2)/</url>
     <content><![CDATA[<pre><code>translate(x, y)
@@ -1100,6 +999,38 @@ scale(x, y)
       </tags>
   </entry>
   <entry>
+    <title>H5音频视频功能逻辑</title>
+    <url>/2022/08/20/04_%E5%8A%9F%E8%83%BD%E7%82%B9%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<pre><code>播放按钮点击时:
+    切换播放按钮的样式
+    控制视频的播放暂停
+        播放:控制进度条的前进(通过开启定时器来实现)
+        暂停:要关闭定时器不让进度条前进
+        
+停止按钮点击时
+    切换播放按钮的样式
+    控制视频暂停
+        暂停:要关闭定时器不让进度条前进
+    进度条重置为0
+    视频时间调整为0
+    
+拖拽时根据拖拽距离控制视频时间
+
+点击进度条时,根据点击位置控制视频时间
+    点击进度条时,默认就应该是播放操作
+    切换播放按钮的样式
+    控制视频的播放
+        :控制进度条的前进:通过开启定时器来实现
+</code></pre>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>H5 canvas像素</title>
     <url>/2022/08/20/09_canvas(%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C)/</url>
     <content><![CDATA[<h3 id="在canvas中的像素操作"><a href="#在canvas中的像素操作" class="headerlink" title="在canvas中的像素操作"></a>在canvas中的像素操作</h3><pre><code>    到目前为止，我们尚未深入了解Canvas画布真实像素的原理，事实上，
@@ -1143,16 +1074,85 @@ putImageData(myImageData, dx, dy)
       </tags>
   </entry>
   <entry>
-    <title>H5_canvas贝塞尔</title>
-    <url>/2022/08/20/05_canvas(%E8%B4%9D%E5%A1%9E%E5%B0%94)/</url>
-    <content><![CDATA[<h3 id="二次贝塞尔"><a href="#二次贝塞尔" class="headerlink" title="二次贝塞尔"></a>二次贝塞尔</h3><pre><code>quadraticCurveTo(cp1x, cp1y, x, y)
-    绘制二次贝塞尔曲线，cp1x,cp1y为一个控制点，x,y为结束点。
-    起始点为moveto时指定的点
+    <title>H5_ canvas文本</title>
+    <url>/2022/08/20/08_canvas(%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC)/</url>
+    <content><![CDATA[<h3 id="在canvas中绘制文本"><a href="#在canvas中绘制文本" class="headerlink" title="在canvas中绘制文本"></a>在canvas中绘制文本</h3><pre><code>canvas 提供了两种方法来渲染文本:
+    fillText(text, x, y)
+        在指定的(x,y)位置填充指定的文本
+    strokeText(text, x, y)
+        在指定的(x,y)位置绘制文本边框
 </code></pre>
-<h3 id="三次贝塞尔"><a href="#三次贝塞尔" class="headerlink" title="三次贝塞尔"></a>三次贝塞尔</h3><pre><code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
-    绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
-    起始点为moveto时指定的点
+<h3 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h3><pre><code>font = value
+    当前我们用来绘制文本的样式. 这个字符串使用和 CSS font 属性相同的语法. 
+    默认的字体是 10px sans-serif。
+    font属性在指定时，必须要有大小和字体 缺一不可
+    
+textAlign = value
+    文本对齐选项. 可选的值包括： left, right  center. 
+    left
+        文本左对齐。
+    right
+        文本右对齐。
+    center
+        文本居中对齐。
+        这里的textAlign="center"比较特殊。textAlign的值为center时候
+        文本的居中是基于你在fillText的时候所给的x的值，
+        也就是说文本一半在x的左边，一半在x的右边
 </code></pre>
+<p>​	<br>    textBaseline = value<br>        描述绘制文本时，当前文本基线的属性。<br>        top<br>            文本基线在文本块的顶部。<br>        middle<br>            文本基线在文本块的中间。<br>        bottom<br>            文本基线在文本块的底部。</p>
+<h3 id="measureText"><a href="#measureText" class="headerlink" title="measureText"></a>measureText</h3><pre><code>measureText() 方法返回一个 TextMetrics 对象，包含关于文本尺寸的信息（例如文本的宽度）
+</code></pre>
+<h3 id="canvas中文本水平垂直居中"><a href="#canvas中文本水平垂直居中" class="headerlink" title="canvas中文本水平垂直居中"></a>canvas中文本水平垂直居中</h3><h3 id="阴影-文本阴影-amp-盒模型阴影"><a href="#阴影-文本阴影-amp-盒模型阴影" class="headerlink" title="阴影(文本阴影&amp;盒模型阴影)"></a>阴影(文本阴影&amp;盒模型阴影)</h3><pre><code>shadowOffsetX = float
+    shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
+    它们默认都为 0。
+shadowOffsetY = float
+    shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
+    它们默认都为 0。
+shadowBlur = float
+    shadowBlur 用于设定阴影的模糊程度，其数值并不跟像素数量挂钩，也不受变换矩阵的影响，默认为 0。
+shadowColor = color(必需项)
+    shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色。
+</code></pre>
+<p>​	<br>​		</p>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5 canvas图片背景</title>
+    <url>/2022/08/20/07_canvas(%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87&amp;%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF)/</url>
+    <content><![CDATA[<h3 id="在canvas中插入图片-需要image对象"><a href="#在canvas中插入图片-需要image对象" class="headerlink" title="在canvas中插入图片(需要image对象)"></a>在canvas中插入图片(需要image对象)</h3><pre><code>1.canvas操作图片时，必须要等图片加载完才能操作
+2.drawImage(image, x, y, width, height)
+    其中 image 是 image 或者 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标。
+    这个方法多了2个参数：width 和 height，这两个参数用来控制 当像canvas画入时应该缩放的大小
+</code></pre>
+<h3 id="在canvas中设置背景-需要image对象"><a href="#在canvas中设置背景-需要image对象" class="headerlink" title="在canvas中设置背景(需要image对象)"></a>在canvas中设置背景(需要image对象)</h3><pre><code>1.createPattern(image, repetition)
+    image:图像源
+    epetition:
+        "repeat" 
+        "repeat-x" 
+        "repeat-y" 
+        "no-repeat" 
+        
+一般情况下，我们都会将createPattern返回的对象作为fillstyle的值
+</code></pre>
+<h3 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h3><pre><code>canvas渐变（线性渐变）
+    createLinearGradient(x1, y1, x2, y2)
+            表示渐变的起点 (x1,y1) 与终点 (x2,y2)
+                
+    gradient.addColorStop(position, color)
+            gradient :createLinearGradient的返回值
+            addColorStop 方法接受 2 个参数，
+                position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。
+                                例如，0.5 表示颜色会出现在正中间。
+                color 参数必须是一个有效的 CSS 颜色值（如 #FFF， rgba(0,0,0,1)，等等）
+</code></pre>
+<p>​	<br>    canvas渐变（径向渐变）	<br>        createRadialGradient(x1, y1, r1, x2, y2, r2)<br>            前三个参数则定义另一个以(x1,y1) 为原点，半径为 r1 的圆，<br>            后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆。</p>
+<p>​		</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -1191,58 +1191,6 @@ globalCompositeOperation
       </categories>
       <tags>
         <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5其他</title>
-    <url>/2022/08/20/11_canvas(others)/</url>
-    <content><![CDATA[<h3 id="将画布导出为图像"><a href="#将画布导出为图像" class="headerlink" title="将画布导出为图像"></a>将画布导出为图像</h3><pre><code>toDataURL(注意是canvas元素接口上的方法)
-</code></pre>
-<h3 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h3><pre><code>ctx.isPointInPath(x, y)
-    判断在当前路径中是否包含检测点
-        x:检测点的X坐标
-        y:检测点的Y坐标
-
-注意，此方法只作用于最新画出的canvas图像
-</code></pre>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jQuery3</title>
-    <url>/2022/08/09/jQuery2/</url>
-    <content><![CDATA[<hr>
-<ul>
-<li><p>动画效果</p>
-<ul>
-<li>在一定的时间内, 不断改变元素样式</li>
-<li>slideDown()/slideUp()/slideToggle()</li>
-<li>fadeOut()/fadeIn()/fadeToggle()</li>
-<li>show()/hide()/toggle()</li>
-<li>animate({结束时的样式}, time, fun)</li>
-<li>stop()</li>
-</ul>
-</li>
-<li><p>插件机制</p>
-<ul>
-<li>扩展jQuery函数对象的方法<br>$.extend({<br>  xxx: fuction () {} // this是$<br>})<br>$.xxx()</li>
-<li>扩展jQuery对象的方法<br>$.fn.extend({<br>  xxx: function(){}  // this是jQuery对象<br>})<br>$obj.xxx()</li>
-</ul>
-</li>
-<li><p>jQuery文档的结构图</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jQuery</category>
-      </categories>
-      <tags>
-        <tag>jQuery</tag>
       </tags>
   </entry>
   <entry>
@@ -1338,153 +1286,23 @@ globalCompositeOperation
       </tags>
   </entry>
   <entry>
-    <title>Unity变量</title>
-    <url>/2022/08/29/unity%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量结构："><a href="#变量结构：" class="headerlink" title="变量结构："></a>变量结构：</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="built_in">int</span> health <span class="comment">//其他代码文件也可以使用这些信息 会显示在unity界面中（方便频繁调试）</span></span><br><span class="line">      </span><br><span class="line"><span class="comment">//开放性  类型  名字</span></span><br><span class="line">      </span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> health <span class="comment">//局限于当前的脚本中</span></span><br></pre></td></tr></tbody></table></figure>
+    <title>H5其他</title>
+    <url>/2022/08/20/11_canvas(others)/</url>
+    <content><![CDATA[<h3 id="将画布导出为图像"><a href="#将画布导出为图像" class="headerlink" title="将画布导出为图像"></a>将画布导出为图像</h3><pre><code>toDataURL(注意是canvas元素接口上的方法)
+</code></pre>
+<h3 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h3><pre><code>ctx.isPointInPath(x, y)
+    判断在当前路径中是否包含检测点
+        x:检测点的X坐标
+        y:检测点的Y坐标
 
-<h4 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h4><span id="more"></span>
-
-<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="comment">//整数</span></span><br><span class="line"><span class="built_in">float</span> <span class="comment">//小数</span></span><br><span class="line"><span class="built_in">bool</span> <span class="comment">//布尔值</span></span><br><span class="line"><span class="built_in">string</span> <span class="comment">//字符串</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/*应用变量 调用其他脚本的</span></span><br><span class="line"><span class="comment">Unity基于Game Object运作,一种隐形的容器，有着位置朝向尺寸。可以在其中填充各种组件强化功能,脚本也是其中之一。</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="keyword">public</span> Transform somewhere <span class="comment">//存储位置和朝向</span></span><br><span class="line"><span class="keyword">public</span> Color red <span class="comment">//存储颜色</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span>[] numberArray = <span class="keyword">new</span> <span class="built_in">int</span>[] {<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>};<span class="comment">//创建一个拥有三个变量整数的数组</span></span><br><span class="line"></span><br><span class="line">numberArray[<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//修改数组第一位</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>文件管理器右键创建一个脚本，双击打开。文件名 PlayeeMove (要一致，否则会出bug)</p>
-<p>代码：</p>
-<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="comment">//上面是引用空间,需要在这引入相应工具箱才能在接下来代码使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayeeMove</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed; <span class="comment">//声明变量,不去赋值会有相应的默认值不会出bug</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Vector3 playerInput; <span class="comment">//引用变量，它是存储三维空间中物体位置的组件 Vector3 == (x,y,z)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏场景出现后运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span>{</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏每一帧都运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span>{</span><br><span class="line">        <span class="comment">//时实检测玩家的方向键输入，然后将其转换成（0，0）的坐标值存储起来</span></span><br><span class="line">      playerInput = <span class="keyword">new</span> Vector3(Input.GetAxisRaw(<span class="string">"Horizontal"</span>),</span><br><span class="line">      Input.GetAxisRaw(<span class="string">"Vertical"</span>));  </span><br><span class="line">   </span><br><span class="line">        <span class="comment">//自带的工具箱，代表的是脚本绑定的Game Object的当前的位置</span></span><br><span class="line">        transform.position = playerInput*speed*Time.deltaTime</span><br><span class="line">        +transform.position;</span><br><span class="line">        <span class="comment">//Time.deltaTime代表时间的变量, 加上后可以让角色速度不受帧影响</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
+注意，此方法只作用于最新画出的canvas图像
+</code></pre>
 ]]></content>
       <categories>
-        <category>Unity</category>
+        <category>HTML5</category>
       </categories>
       <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jQuery2</title>
-    <url>/2022/08/10/jQuery3/</url>
-    <content><![CDATA[<hr>
-<ol>
-<li>CSS模块</li>
-</ol>
-<ul>
-<li>style样式<ul>
-<li>css(styleName): 根据样式名得到对应的值</li>
-<li>css(styleName, value): 设置一个样式</li>
-<li>css({多个样式对}): 设置多个样式</li>
-</ul>
-</li>
-<li>位置坐标<ul>
-<li>offset(): 读/写当前元素坐标(原点是页面左上角)</li>
-<li>position(): 读当前元素坐标(原点是父元素左上角)</li>
-<li>scrollTop()/scrollLeft(): 读/写元素/页面的滚动条坐标</li>
-</ul>
-</li>
-<li>尺寸<ul>
-<li>width()/height(): width/height</li>
-<li>innerWidth()/innerHeight(): width + padding</li>
-<li>outerWidth()/outerHeight(): width + padding + border</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>筛选模块</li>
-</ol>
-<ul>
-<li>过滤<ul>
-<li>在jQuery对象内部的元素中找出部分匹配的元素, 并封装成新的jQuery对象返回</li>
-<li>first()</li>
-<li>last()</li>
-<li>eq(index)</li>
-<li>filter(selector): 对当前元素提要求</li>
-<li>not(selector): 对当前元素提要求, 并取反</li>
-<li>has(selector): 对子孙元素提要求</li>
-</ul>
-</li>
-<li>查找<ul>
-<li>查找jQuery对象内部的元素的子孙/兄弟/父母元素, 并封装成新的jQuery对象返回</li>
-<li>children(selector): 子元素</li>
-<li>find(selector): 后代元素</li>
-<li>preAll(selector): 前的所有兄弟</li>
-<li>siblings(selector): 所有兄弟</li>
-<li>parent(): 父元素</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>文档处理(CUD)模块</li>
-</ol>
-<ul>
-<li>增加<ul>
-<li>append() / appendTo(): 插入后部</li>
-<li>preppend() / preppendTo(): 插入前部</li>
-<li>before(): 插到前面</li>
-<li>after(): 插到后面</li>
-</ul>
-</li>
-<li>删除<ul>
-<li>remove(): 将自己及内部的孩子都删除</li>
-<li>empty(): 掏空(自己还在)</li>
-</ul>
-</li>
-<li>更新<ul>
-<li>replaceWith()</li>
-</ul>
-</li>
-</ul>
-<ol start="4">
-<li>事件模块</li>
-</ol>
-<ul>
-<li>绑定事件<ul>
-<li>eventName(function(){})</li>
-<li>on(‘eventName’, function(){})</li>
-<li>常用: click, mouseenter/mouseleave mouseover/mouseout focus/blur</li>
-<li>hover(function(){}, function(){})</li>
-</ul>
-</li>
-<li>解绑事件<ul>
-<li>off(‘eventName’)</li>
-</ul>
-</li>
-<li>事件委托<ul>
-<li>理解: 将子元素的事件委托给父辈元素处理<ul>
-<li>事件监听绑定在父元素上, 但事件发生在子元素上<br>*　事件会冒泡到父元素</li>
-<li>但最终调用的事件回调函数的是子元素: event.target</li>
-</ul>
-</li>
-<li>好处<ul>
-<li>新增的元素没有事件监听</li>
-<li>减少监听的数量(n==&gt;1)</li>
-</ul>
-</li>
-<li>编码<ul>
-<li>delegate(selector, ‘eventName’, function(event){}) // 回调函数中的this是子元素</li>
-<li>undelegate(‘eventName’)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>事件坐标<ul>
-<li>event.offsetX: 原点是当前元素左上角</li>
-<li>event.clientX: 原点是窗口左上角</li>
-<li>event.pageX: 原点是页面左上角</li>
-</ul>
-</li>
-<li>事件相关<ul>
-<li>停止事件冒泡: event.stopPropagation()</li>
-<li>阻止事件的默认行为: event.preventDefault()</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jQuery</category>
-      </categories>
-      <tags>
-        <tag>jQuery</tag>
+        <tag>HTML5</tag>
       </tags>
   </entry>
   <entry>
@@ -1628,6 +1446,156 @@ globalCompositeOperation
       </categories>
       <tags>
         <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery2</title>
+    <url>/2022/08/10/jQuery3/</url>
+    <content><![CDATA[<hr>
+<ol>
+<li>CSS模块</li>
+</ol>
+<ul>
+<li>style样式<ul>
+<li>css(styleName): 根据样式名得到对应的值</li>
+<li>css(styleName, value): 设置一个样式</li>
+<li>css({多个样式对}): 设置多个样式</li>
+</ul>
+</li>
+<li>位置坐标<ul>
+<li>offset(): 读/写当前元素坐标(原点是页面左上角)</li>
+<li>position(): 读当前元素坐标(原点是父元素左上角)</li>
+<li>scrollTop()/scrollLeft(): 读/写元素/页面的滚动条坐标</li>
+</ul>
+</li>
+<li>尺寸<ul>
+<li>width()/height(): width/height</li>
+<li>innerWidth()/innerHeight(): width + padding</li>
+<li>outerWidth()/outerHeight(): width + padding + border</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>筛选模块</li>
+</ol>
+<ul>
+<li>过滤<ul>
+<li>在jQuery对象内部的元素中找出部分匹配的元素, 并封装成新的jQuery对象返回</li>
+<li>first()</li>
+<li>last()</li>
+<li>eq(index)</li>
+<li>filter(selector): 对当前元素提要求</li>
+<li>not(selector): 对当前元素提要求, 并取反</li>
+<li>has(selector): 对子孙元素提要求</li>
+</ul>
+</li>
+<li>查找<ul>
+<li>查找jQuery对象内部的元素的子孙/兄弟/父母元素, 并封装成新的jQuery对象返回</li>
+<li>children(selector): 子元素</li>
+<li>find(selector): 后代元素</li>
+<li>preAll(selector): 前的所有兄弟</li>
+<li>siblings(selector): 所有兄弟</li>
+<li>parent(): 父元素</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>文档处理(CUD)模块</li>
+</ol>
+<ul>
+<li>增加<ul>
+<li>append() / appendTo(): 插入后部</li>
+<li>preppend() / preppendTo(): 插入前部</li>
+<li>before(): 插到前面</li>
+<li>after(): 插到后面</li>
+</ul>
+</li>
+<li>删除<ul>
+<li>remove(): 将自己及内部的孩子都删除</li>
+<li>empty(): 掏空(自己还在)</li>
+</ul>
+</li>
+<li>更新<ul>
+<li>replaceWith()</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>事件模块</li>
+</ol>
+<ul>
+<li>绑定事件<ul>
+<li>eventName(function(){})</li>
+<li>on(‘eventName’, function(){})</li>
+<li>常用: click, mouseenter/mouseleave mouseover/mouseout focus/blur</li>
+<li>hover(function(){}, function(){})</li>
+</ul>
+</li>
+<li>解绑事件<ul>
+<li>off(‘eventName’)</li>
+</ul>
+</li>
+<li>事件委托<ul>
+<li>理解: 将子元素的事件委托给父辈元素处理<ul>
+<li>事件监听绑定在父元素上, 但事件发生在子元素上<br>*　事件会冒泡到父元素</li>
+<li>但最终调用的事件回调函数的是子元素: event.target</li>
+</ul>
+</li>
+<li>好处<ul>
+<li>新增的元素没有事件监听</li>
+<li>减少监听的数量(n==&gt;1)</li>
+</ul>
+</li>
+<li>编码<ul>
+<li>delegate(selector, ‘eventName’, function(event){}) // 回调函数中的this是子元素</li>
+<li>undelegate(‘eventName’)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件坐标<ul>
+<li>event.offsetX: 原点是当前元素左上角</li>
+<li>event.clientX: 原点是窗口左上角</li>
+<li>event.pageX: 原点是页面左上角</li>
+</ul>
+</li>
+<li>事件相关<ul>
+<li>停止事件冒泡: event.stopPropagation()</li>
+<li>阻止事件的默认行为: event.preventDefault()</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity变量</title>
+    <url>/2022/08/29/unity%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量结构："><a href="#变量结构：" class="headerlink" title="变量结构："></a>变量结构：</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="built_in">int</span> health <span class="comment">//其他代码文件也可以使用这些信息 会显示在unity界面中（方便频繁调试）</span></span><br><span class="line">      </span><br><span class="line"><span class="comment">//开放性  类型  名字</span></span><br><span class="line">      </span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> health <span class="comment">//局限于当前的脚本中</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h4><span id="more"></span>
+
+<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="comment">//整数</span></span><br><span class="line"><span class="built_in">float</span> <span class="comment">//小数</span></span><br><span class="line"><span class="built_in">bool</span> <span class="comment">//布尔值</span></span><br><span class="line"><span class="built_in">string</span> <span class="comment">//字符串</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/*应用变量 调用其他脚本的</span></span><br><span class="line"><span class="comment">Unity基于Game Object运作,一种隐形的容器，有着位置朝向尺寸。可以在其中填充各种组件强化功能,脚本也是其中之一。</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="keyword">public</span> Transform somewhere <span class="comment">//存储位置和朝向</span></span><br><span class="line"><span class="keyword">public</span> Color red <span class="comment">//存储颜色</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span>[] numberArray = <span class="keyword">new</span> <span class="built_in">int</span>[] {<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>};<span class="comment">//创建一个拥有三个变量整数的数组</span></span><br><span class="line"></span><br><span class="line">numberArray[<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//修改数组第一位</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>文件管理器右键创建一个脚本，双击打开。文件名 PlayeeMove (要一致，否则会出bug)</p>
+<p>代码：</p>
+<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="comment">//上面是引用空间,需要在这引入相应工具箱才能在接下来代码使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayeeMove</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed; <span class="comment">//声明变量,不去赋值会有相应的默认值不会出bug</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Vector3 playerInput; <span class="comment">//引用变量，它是存储三维空间中物体位置的组件 Vector3 == (x,y,z)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏场景出现后运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span>{</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏每一帧都运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span>{</span><br><span class="line">        <span class="comment">//时实检测玩家的方向键输入，然后将其转换成（0，0）的坐标值存储起来</span></span><br><span class="line">      playerInput = <span class="keyword">new</span> Vector3(Input.GetAxisRaw(<span class="string">"Horizontal"</span>),</span><br><span class="line">      Input.GetAxisRaw(<span class="string">"Vertical"</span>));  </span><br><span class="line">   </span><br><span class="line">        <span class="comment">//自带的工具箱，代表的是脚本绑定的Game Object的当前的位置</span></span><br><span class="line">        transform.position = playerInput*speed*Time.deltaTime</span><br><span class="line">        +transform.position;</span><br><span class="line">        <span class="comment">//Time.deltaTime代表时间的变量, 加上后可以让角色速度不受帧影响</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -2098,6 +2066,30 @@ globalCompositeOperation
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6解构赋值</title>
+    <url>/2022/08/30/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/</url>
+    <content><![CDATA[<ul>
+<li><p>ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。</p>
+<ol>
+<li><p>数组的结构</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">F4</span> = [<span class="string">'小阳'</span>,<span class="string">'刘能'</span>,<span class="string">'赵四'</span>,<span class="string">'王五'</span>];</span><br><span class="line">    <span class="keyword">let</span> [xiao, liu, zhao, song] = <span class="variable constant_">F4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(xiao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(liu);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(zhao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(song);</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+</li>
+</ul>
+<p>​     </p>
+<ol start="2">
+<li><p>对象的解构</p>
+<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">       <span class="keyword">const</span> zhao = {</span><br><span class="line">     </span><br><span class="line">           <span class="attr">name</span>: <span class="string">'某强'</span>,</span><br><span class="line">     </span><br><span class="line">           <span class="attr">age</span>: <span class="string">'不详'</span>,</span><br><span class="line">     </span><br><span class="line">            <span class="attr">xiaopin</span>: <span class="keyword">function</span>(<span class="params"></span>){</span><br><span class="line">     </span><br><span class="line">             <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"我可以打三国杀"</span>);</span><br><span class="line">     </span><br><span class="line">            }</span><br><span class="line">     </span><br><span class="line">         };</span><br><span class="line">     </span><br><span class="line"><span class="keyword">let</span> {name, age, xiaopin} = zhao;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(age);</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(xiaopin);</span><br><span class="line">              <span class="title function_">xiaopin</span>();</span><br><span class="line">     </span><br><span class="line">             <span class="keyword">let</span> {xiaopin} = zhao;</span><br><span class="line">             <span class="title function_">xiaopin</span>();</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>
@@ -2604,27 +2596,35 @@ globalCompositeOperation
       </tags>
   </entry>
   <entry>
-    <title>ES6解构赋值</title>
-    <url>/2022/08/30/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/</url>
-    <content><![CDATA[<ul>
-<li><p>ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。</p>
-<ol>
-<li><p>数组的结构</p>
-<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">F4</span> = [<span class="string">'小沈阳'</span>,<span class="string">'刘能'</span>,<span class="string">'赵四'</span>,<span class="string">'宋小宝'</span>];</span><br><span class="line">    <span class="keyword">let</span> [xiao, liu, zhao, song] = <span class="variable constant_">F4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(xiao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(liu);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(zhao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(song);</span><br></pre></td></tr></tbody></table></figure></li>
-</ol>
+    <title>jQuery3</title>
+    <url>/2022/08/09/jQuery2/</url>
+    <content><![CDATA[<hr>
+<ul>
+<li><p>动画效果</p>
+<ul>
+<li>在一定的时间内, 不断改变元素样式</li>
+<li>slideDown()/slideUp()/slideToggle()</li>
+<li>fadeOut()/fadeIn()/fadeToggle()</li>
+<li>show()/hide()/toggle()</li>
+<li>animate({结束时的样式}, time, fun)</li>
+<li>stop()</li>
+</ul>
+</li>
+<li><p>插件机制</p>
+<ul>
+<li>扩展jQuery函数对象的方法<br>$.extend({<br>  xxx: fuction () {} // this是$<br>})<br>$.xxx()</li>
+<li>扩展jQuery对象的方法<br>$.fn.extend({<br>  xxx: function(){}  // this是jQuery对象<br>})<br>$obj.xxx()</li>
+</ul>
+</li>
+<li><p>jQuery文档的结构图</p>
 </li>
 </ul>
-<p>​     </p>
-<ol start="2">
-<li><p>对象的解构</p>
-<figure class="highlight js"><table><tbody><tr><td class="code"><pre><span class="line">       <span class="keyword">const</span> zhao = {</span><br><span class="line">     </span><br><span class="line">           <span class="attr">name</span>: <span class="string">'某强'</span>,</span><br><span class="line">     </span><br><span class="line">           <span class="attr">age</span>: <span class="string">'不详'</span>,</span><br><span class="line">     </span><br><span class="line">            <span class="attr">xiaopin</span>: <span class="keyword">function</span>(<span class="params"></span>){</span><br><span class="line">     </span><br><span class="line">             <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"我可以打三国杀"</span>);</span><br><span class="line">     </span><br><span class="line">            }</span><br><span class="line">     </span><br><span class="line">         };</span><br><span class="line">     </span><br><span class="line"><span class="keyword">let</span> {name, age, xiaopin} = zhao;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(age);</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(xiaopin);</span><br><span class="line">              <span class="title function_">xiaopin</span>();</span><br><span class="line">     </span><br><span class="line">             <span class="keyword">let</span> {xiaopin} = zhao;</span><br><span class="line">             <span class="title function_">xiaopin</span>();</span><br></pre></td></tr></tbody></table></figure></li>
-</ol>
 ]]></content>
       <categories>
-        <category>ES6</category>
+        <category>jQuery</category>
       </categories>
       <tags>
-        <tag>ES6</tag>
+        <tag>jQuery</tag>
       </tags>
   </entry>
 </search>

@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>ES6解构赋值 | wtf</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。  数组的结构 12345678910const F4 &#x3D; [&#39;小沈阳&#39;,&#39;刘能&#39;,&#39;赵四&#39;,&#39;宋小宝&#39;];    let [xiao, liu, zhao, song] &#x3D; F4;    console.log(xiao);    console.log(liu);     console.log(zhao);">
+  <meta name="description" content="ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。  数组的结构 12345678910const F4 &#x3D; [&#39;小阳&#39;,&#39;刘能&#39;,&#39;赵四&#39;,&#39;王五&#39;];    let [xiao, liu, zhao, song] &#x3D; F4;    console.log(xiao);    console.log(liu);     console.log(zhao);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6解构赋值">
 <meta property="og:url" content="http://example.com/2022/08/30/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/index.html">
 <meta property="og:site_name" content="wtf">
-<meta property="og:description" content="ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。  数组的结构 12345678910const F4 &#x3D; [&#39;小沈阳&#39;,&#39;刘能&#39;,&#39;赵四&#39;,&#39;宋小宝&#39;];    let [xiao, liu, zhao, song] &#x3D; F4;    console.log(xiao);    console.log(liu);     console.log(zhao);">
+<meta property="og:description" content="ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。  数组的结构 12345678910const F4 &#x3D; [&#39;小阳&#39;,&#39;刘能&#39;,&#39;赵四&#39;,&#39;王五&#39;];    let [xiao, liu, zhao, song] &#x3D; F4;    console.log(xiao);    console.log(liu);     console.log(zhao);">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-30T14:50:01.002Z">
-<meta property="article:modified_time" content="2022-08-29T14:53:40.013Z">
+<meta property="article:modified_time" content="2022-08-29T14:58:53.990Z">
 <meta property="article:author" content="腾飞">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
@@ -207,7 +207,7 @@
 <li><p>ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值，这被称为解构赋值。</p>
 <ol>
 <li><p>数组的结构</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">F4</span> = [<span class="string">'小沈阳'</span>,<span class="string">'刘能'</span>,<span class="string">'赵四'</span>,<span class="string">'宋小宝'</span>];</span><br><span class="line">    <span class="keyword">let</span> [xiao, liu, zhao, song] = <span class="variable constant_">F4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(xiao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(liu);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(zhao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(song);</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">F4</span> = [<span class="string">'小阳'</span>,<span class="string">'刘能'</span>,<span class="string">'赵四'</span>,<span class="string">'王五'</span>];</span><br><span class="line">    <span class="keyword">let</span> [xiao, liu, zhao, song] = <span class="variable constant_">F4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(xiao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(liu);</span><br><span class="line"></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(zhao);</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(song);</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 </li>
 </ul>
@@ -474,10 +474,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
@@ -487,6 +483,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
