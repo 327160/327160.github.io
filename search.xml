@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>H5概述</title>
-    <url>/2022/08/15/00_html5%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h2 id="Html5"><a href="#Html5" class="headerlink" title="Html5"></a>Html5</h2><p>​	HTML5 是定义 HTML 标准的最新的版本。 该术语表示两个不同的概念：<br>​		它是一个新版本的HTML语言，具有新的元素，属性和行为，<br>​		它有更大的技术集，允许更多样化和强大的网站和应用程序。<br>​				这个集合有时称为HTML5和朋友，通常缩写为HTML5。<br>​	</p>
-<pre><code>    HTML5     约等于     HTML + CSS + JS
+    <title>H5_canvas基本用法</title>
+    <url>/2022/08/17/01_canvas(%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95)/</url>
+    <content><![CDATA[<pre><code>1.什么是canvas(画布)
+        &lt;canvas&gt; 是 HTML5 新增的元素，可用于通过使用JavaScript中的脚本来绘制图形
+    例如，它可以用于绘制图形，创建动画。&lt;canvas&gt; 最早由Apple引入WebKit
+    我们可以使用&lt;canvas&gt;标签来定义一个canvas元素
+        -----&gt;使用&lt;canvas&gt;标签时，建议要成对出现，不要使用闭合的形式。
+        -----&gt;canvas元素默认具有高宽
+                    width：  300px
+                    height：150px
+    
+2.替换内容
+        &lt;canvas&gt;很容易定义一些替代内容。由于某些较老的浏览器（尤其是IE9之前的IE浏览器）
+    不支持HTML元素"canvas"，
+    但在这些浏览器上你应该要给用户展示些替代内容。
+    这非常简单：我们只需要在&lt;canvas&gt;标签中提供替换内容就可以。
+        ---&gt;支持&lt;canvas&gt;的浏览器将会忽略在容器中包含的内容，并且只是正常渲染canvas。
+        ---&gt;不支持&lt;canvas&gt;的浏览器会显示代替内容
+        
+3.canvas标签的两个属性
+        &lt;canvas&gt; 看起来和 &lt;img&gt; 元素很相像，唯一的不同就是它并没有 src 和 alt 属性。
+    实际上，&lt;canvas&gt; 标签只有两个属性—— width和height。这些都是可选的。
+    当没有设置宽度和高度的时候，canvas会初始化宽度为300像素和高度为150像素。
+    
+    画布的高宽
+        html属性设置width height时只影响画布本身不影画布内容
+        css属性设置width height时不但会影响画布本身的高宽，
+                    还会使画布中的内容等比例缩放（缩放参照于画布默认的尺寸）
+    
+4.渲染上下文
+        &lt;canvas&gt; 元素只是创造了一个固定大小的画布，要想在它上面去绘制内容，
+    我们需要找到它的渲染上下文
+        &lt;canvas&gt; 元素有一个叫做 getContext() 的方法，这个方法是用来获得渲染上下文和它的绘画功能。
+    getContext()只有一个参数，上下文的格式
+        -----&gt;获取方式
+              var canvas = document.getElementById('box');
+              var ctx = canvas.getContext('2d');
+              
+        -----&gt;检查支持性
+              var canvas = document.getElementById('tutorial');
+              if (canvas.getContext){
+                    var ctx = canvas.getContext('2d');
+                } 
 </code></pre>
-<h3 id="Html5优势"><a href="#Html5优势" class="headerlink" title="Html5优势"></a>Html5优势</h3><p>​	跨平台:唯一一个通吃PC MAC Iphone Android等主流平台的跨平台语言<br>​	快速迭代<br>​	降低成本<br>​	导流入口多<br>​	分发效率高<br>​	</p>
-<p>​		</p>
+<p>​	<br>​		</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -110,93 +148,6 @@ RealPlayer 或者 Flash。浏览器很好的整合了这些插件，你完全意
       </tags>
   </entry>
   <entry>
-    <title>H5_canvas基本用法</title>
-    <url>/2022/08/17/01_canvas(%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95)/</url>
-    <content><![CDATA[<pre><code>1.什么是canvas(画布)
-        &lt;canvas&gt; 是 HTML5 新增的元素，可用于通过使用JavaScript中的脚本来绘制图形
-    例如，它可以用于绘制图形，创建动画。&lt;canvas&gt; 最早由Apple引入WebKit
-    我们可以使用&lt;canvas&gt;标签来定义一个canvas元素
-        -----&gt;使用&lt;canvas&gt;标签时，建议要成对出现，不要使用闭合的形式。
-        -----&gt;canvas元素默认具有高宽
-                    width：  300px
-                    height：150px
-    
-2.替换内容
-        &lt;canvas&gt;很容易定义一些替代内容。由于某些较老的浏览器（尤其是IE9之前的IE浏览器）
-    不支持HTML元素"canvas"，
-    但在这些浏览器上你应该要给用户展示些替代内容。
-    这非常简单：我们只需要在&lt;canvas&gt;标签中提供替换内容就可以。
-        ---&gt;支持&lt;canvas&gt;的浏览器将会忽略在容器中包含的内容，并且只是正常渲染canvas。
-        ---&gt;不支持&lt;canvas&gt;的浏览器会显示代替内容
-        
-3.canvas标签的两个属性
-        &lt;canvas&gt; 看起来和 &lt;img&gt; 元素很相像，唯一的不同就是它并没有 src 和 alt 属性。
-    实际上，&lt;canvas&gt; 标签只有两个属性—— width和height。这些都是可选的。
-    当没有设置宽度和高度的时候，canvas会初始化宽度为300像素和高度为150像素。
-    
-    画布的高宽
-        html属性设置width height时只影响画布本身不影画布内容
-        css属性设置width height时不但会影响画布本身的高宽，
-                    还会使画布中的内容等比例缩放（缩放参照于画布默认的尺寸）
-    
-4.渲染上下文
-        &lt;canvas&gt; 元素只是创造了一个固定大小的画布，要想在它上面去绘制内容，
-    我们需要找到它的渲染上下文
-        &lt;canvas&gt; 元素有一个叫做 getContext() 的方法，这个方法是用来获得渲染上下文和它的绘画功能。
-    getContext()只有一个参数，上下文的格式
-        -----&gt;获取方式
-              var canvas = document.getElementById('box');
-              var ctx = canvas.getContext('2d');
-              
-        -----&gt;检查支持性
-              var canvas = document.getElementById('tutorial');
-              if (canvas.getContext){
-                    var ctx = canvas.getContext('2d');
-                } 
-</code></pre>
-<p>​	<br>​		</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DOCTYPE和浏览器渲染模式</title>
-    <url>/2022/08/20/02_DOCTYPE/</url>
-    <content><![CDATA[<p>H5<br>    1.DOCTYPE和浏览器渲染模式<br>        DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）<br>        通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。<br>        因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，<br>        不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析</p>
-<pre><code>    到目前为止，各浏览器主要包含了三种模式。在 HTML5 草案中，更加明确的规定了模式的定义：
-      	 传统名称	    				  		HTML5 草案名称				document.compatMode 返回值
-    standards mode(strict mode) 			no-quirks mode				CSS1Compat
-    almost standards mode					limited-quirks mode			CSS1Compat
-    quirks mode								quirks mode					BackCompat
-</code></pre>
-<p>​	<br>​		document.compatMode<br>​			 document.compatMode 属性最初由微软在 IE 中创造出来，这是一个只读的属性，返回一个字符串，<br>​			 只可能存在两种返回值：<br>​				BackCompat：标准兼容模式未开启（怪异模式）<br>​				CSS1Compat：标准兼容模式已开启（标准模式）<br>​	<br>        在现代主流浏览器中，其实怪异模式的渲染和标准与几乎标准间没有太大的差别（ie9+ 谷歌 火狐 …）<br>        ie5.5之前都是ie自己的渲染模式，怪异模式<br>        ie6才开始慢慢支持标准，标准模式，在ie6 中怪异和标准模式的区别最大<br>        ie7 8 9都是基于标准模式升级的，他们理论上存在怪异模式</p>
-<pre><code>    HTML5提供的&lt;DOCTYPE html&gt;是标准模式，向后兼容的,等同于开启了标准模式，
-    那么浏览器就得老老实实的按照W3C的 标准解析渲染页面
-    一个不含任何 DOCTYPE 的网页将会以 怪异(quirks) 模式渲染。
-</code></pre>
-<p>​		<br>​		<br>​		<br>​		<br>​	2.DTD<br>​		<br>​			当 doctype 信息如上时，表明该页面是遵守了 HTML5 规范的，浏览器会选择 Standards Mode，这种 doctype 是最推荐的一种，<br>​		我们平时设计页面都应该加上这一个 doctype。<br>​			HTML5 不基于 SGML,所以不需要引用 DTD,浏览器内部本身有对标签进行解析渲染验证的模块<br>​		<br>        <br>        当 doctype 如上时，浏览器同样会选择 Standards Mode，虽然和第一种 doctype 有一些区别，但是几乎可以认为是一样的。</p>
-<pre><code>    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
-    当 doctype 如上时，浏览器会选择 Almost Standards Mode，渲染时和标准会有一些区别
-
-    当 doctype 缺失的时候，浏览器会选择 Quirks Mode，这是非常不推荐的方式，
-    当 doctype上面有注释，标签或者空行时，某些浏览器都会认为该页面不具有doctype。
-    我们应该尽量避免 Quirks Mode，这对一个 web 应用是非常不利的地方。
-</code></pre>
-<p>​	<br>​	<br>​	<br>​		<br>​	4.每种doctype在浏览器中对应的渲染模式<br>​		<a href="https://en.wikipedia.org/wiki/Quirks_mode">https://en.wikipedia.org/wiki/Quirks_mode</a></p>
-<p>​				<br>​	<br>​	</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H5_canvas绘制矩形</title>
     <url>/2022/08/20/02_canvas(%E7%BB%98%E5%88%B6%E7%9F%A9%E5%BD%A2)/</url>
     <content><![CDATA[<pre><code>HTML中的元素canvas只支持一种原生的图形绘制：矩形。所有其他的图形的绘制都至少需要生成一条路径
@@ -261,125 +212,6 @@ RealPlayer 或者 Flash。浏览器很好的整合了这些插件，你完全意
         但是HTML5中的每个元素都具有这个命名空间，不需要在页面上再显示指出
 </code></pre>
 <p>​			<br>    H5中的根元素<br>        </p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>H5表单</title>
-    <url>/2022/08/18/02_%E7%96%AF%E7%8B%82%E7%9A%84%E8%A1%A8%E5%8D%95/</url>
-    <content><![CDATA[<pre><code>Html5 Forms概述,在Html5中:
-    1.表单仍然使用&lt;form&gt;元素作为容器,我们可以在其中设置基本的提交特性
-        form的action指向一个服务器地址（接口）
-    2.当用户或开发人员提交页面时,表单仍然用于向服务端发送表单中控件的值
-        注意表单项的name属性必须有值，服务器才能获取表单
-    3.所有之前的表单控件都保持不变
-    4.仍然可以使用脚本操作表单控件
-    5.Htnl5之前的表单
-        标签为input
-            type:text:文本框
-            type:password:密码框
-            type:radio:单选按钮
-                注意以name分组，确保单选关系，也为了后台能成功获取
-                必须有value属性，为了后台获取后的识别（不写统一为on）
-                checked属性,选中控制
-            type:checkbox:复选框
-                注意以name分组，确保为一组，也为了后台能成功获取
-                必须有value属性，为了后台获取后的识别（不写统一为on）
-                checked属性,选中控制
-            type:submit:提交按钮
-            type:reset:重置按钮
-            type:button:普通按钮
-        
-        标签为select:下拉框
-            name属性在select标签上
-            multiple:可选多项
-            子项可以通过optgroup来进行分组
-                label属性用来定义组名
-                子项为option标签
-                    selected属性,选中控制
-                    必须有value属性,为了后台获取后的识别
-        
-        标签为textarea:文本域
-        
-        标签为button:按钮
-            type:submit:提交按钮
-            type:reset:重置按钮
-            type:button:普通按钮
-            
-        标签为lable:控制文本与表单的关系
-            for属性指向一个input的id
-            
-        标签fieldset 标签legend:来为表单分组	
-                
-    6.attr &amp; prop
-    7.Html5 新增
-</code></pre>
-<h3 id="新增表单控件"><a href="#新增表单控件" class="headerlink" title="新增表单控件"></a>新增表单控件</h3><pre><code>    1.type:email :email地址类型
-        当格式不符合email格式时，提交是不会成功的，会出现提示；只有当格式相符时，提交才会通过
-        在移动端获焦的时候会切换到英文键盘
-        
-    2.type:tel :电话类型
-        在移动端获焦的时候会切换到数字键盘
-    
-    3.type:url :url类型
-        当格式不符合url格式时，提交是不会成功的，会出现提示；只有当格式相符时，提交才会通过
-        
-    4.type:search :搜索类型
-        有清空文本的按钮
-        
-    5.type:range  :  特定范围内的数值选择器
-        属性:min、max、step
-    
-    6.
-      type:number          :  只能包含数字的输入框
-      type:color  	       		:  颜色选择器
-      type:datetime        	 :  显示完整日期(移动端浏览器支持)
-      type:datetime-local  :  显示完整日期，不含时区
-      type:time            :  显示时间，不含时区
-      type:date            :  显示日期
-      type:week            :  显示周
-      type:month           :  显示月
-</code></pre>
-<p>​			</p>
-<h3 id="新增表单属性"><a href="#新增表单属性" class="headerlink" title="新增表单属性"></a>新增表单属性</h3><pre><code>    placeholder  :  输入框提示信息
-        适用于form,以及type为text,search,url,tel,email,password类型的input
-        
-    autofocus  :  指定表单获取输入焦点
-    
-    required  :  此项必填，不能为空
-    
-    pattern : 正则验证  pattern="\d{1,5}
-    
-    formaction 在submit里定义提交地址
-    
-    list和datalist  :  为输入框构造一个选择列表
-                        list值为datalist标签的id
-</code></pre>
-<p>​		<br>​		</p>
-<h3 id="表单验证反馈"><a href="#表单验证反馈" class="headerlink" title="表单验证反馈"></a>表单验证反馈</h3><pre><code>validity对象，通过下面的valid可以查看验证是否通过，如果八种验证都通过返回true，一种验证失败返回false
-node.addEventListener("invalid",fn1,false);
-
-valueMissing  	 :  输入值为空时返回true
-typeMismatch 	 :  控件值与预期类型不匹配返回true
-patternMismatch  :  输入值不满足pattern正则返回true
-
-tooLong  		 :  超过maxLength最大限制返回true
-rangeUnderflow   :  验证的range最小值返回true
-rangeOverflow    :  验证的range最大值返回true
-stepMismatch     :  验证range 的当前值 是否符合min、max及step的规则返回true
-
-customError 不符合自定义验证返回true
-    setCustomValidity
-</code></pre>
-<h3 id="关闭验证"><a href="#关闭验证" class="headerlink" title="关闭验证"></a>关闭验证</h3><pre><code>formnovalidate属性
-</code></pre>
-<p>​		</p>
-<p>​		</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -501,6 +333,39 @@ load()  :  重新加载媒体
     volumechange	在音频音量改变时触发（既可以是volume属性改变，也可以是muted属性改变）.。
     waiting	在一个待执行的操作（如回放）因等待另一个操作（如跳跃或下载）被延迟时触发
 </code></pre>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DOCTYPE和浏览器渲染模式</title>
+    <url>/2022/08/20/02_DOCTYPE/</url>
+    <content><![CDATA[<p>H5<br>    1.DOCTYPE和浏览器渲染模式<br>        DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）<br>        通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。<br>        因为浏览器必须在解析 HTML 文档正文之前就确定当前文档的类型，以决定其需要采用的渲染模式，<br>        不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析</p>
+<pre><code>    到目前为止，各浏览器主要包含了三种模式。在 HTML5 草案中，更加明确的规定了模式的定义：
+      	 传统名称	    				  		HTML5 草案名称				document.compatMode 返回值
+    standards mode(strict mode) 			no-quirks mode				CSS1Compat
+    almost standards mode					limited-quirks mode			CSS1Compat
+    quirks mode								quirks mode					BackCompat
+</code></pre>
+<p>​	<br>​		document.compatMode<br>​			 document.compatMode 属性最初由微软在 IE 中创造出来，这是一个只读的属性，返回一个字符串，<br>​			 只可能存在两种返回值：<br>​				BackCompat：标准兼容模式未开启（怪异模式）<br>​				CSS1Compat：标准兼容模式已开启（标准模式）<br>​	<br>        在现代主流浏览器中，其实怪异模式的渲染和标准与几乎标准间没有太大的差别（ie9+ 谷歌 火狐 …）<br>        ie5.5之前都是ie自己的渲染模式，怪异模式<br>        ie6才开始慢慢支持标准，标准模式，在ie6 中怪异和标准模式的区别最大<br>        ie7 8 9都是基于标准模式升级的，他们理论上存在怪异模式</p>
+<pre><code>    HTML5提供的&lt;DOCTYPE html&gt;是标准模式，向后兼容的,等同于开启了标准模式，
+    那么浏览器就得老老实实的按照W3C的 标准解析渲染页面
+    一个不含任何 DOCTYPE 的网页将会以 怪异(quirks) 模式渲染。
+</code></pre>
+<p>​		<br>​		<br>​		<br>​		<br>​	2.DTD<br>​		<br>​			当 doctype 信息如上时，表明该页面是遵守了 HTML5 规范的，浏览器会选择 Standards Mode，这种 doctype 是最推荐的一种，<br>​		我们平时设计页面都应该加上这一个 doctype。<br>​			HTML5 不基于 SGML,所以不需要引用 DTD,浏览器内部本身有对标签进行解析渲染验证的模块<br>​		<br>        <br>        当 doctype 如上时，浏览器同样会选择 Standards Mode，虽然和第一种 doctype 有一些区别，但是几乎可以认为是一样的。</p>
+<pre><code>    &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+    当 doctype 如上时，浏览器会选择 Almost Standards Mode，渲染时和标准会有一些区别
+
+    当 doctype 缺失的时候，浏览器会选择 Quirks Mode，这是非常不推荐的方式，
+    当 doctype上面有注释，标签或者空行时，某些浏览器都会认为该页面不具有doctype。
+    我们应该尽量避免 Quirks Mode，这对一个 web 应用是非常不利的地方。
+</code></pre>
+<p>​	<br>​	<br>​	<br>​		<br>​	4.每种doctype在浏览器中对应的渲染模式<br>​		<a href="https://en.wikipedia.org/wiki/Quirks_mode">https://en.wikipedia.org/wiki/Quirks_mode</a></p>
+<p>​				<br>​	<br>​	</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -638,6 +503,22 @@ rt: 展示文字注音或字符注释。
 </code></pre>
 <h3 id="标记标签"><a href="#标记标签" class="headerlink" title="标记标签"></a>标记标签</h3><pre><code>marK:着重
 </code></pre>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5概述</title>
+    <url>/2022/08/15/00_html5%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h2 id="Html5"><a href="#Html5" class="headerlink" title="Html5"></a>Html5</h2><p>​	HTML5 是定义 HTML 标准的最新的版本。 该术语表示两个不同的概念：<br>​		它是一个新版本的HTML语言，具有新的元素，属性和行为，<br>​		它有更大的技术集，允许更多样化和强大的网站和应用程序。<br>​				这个集合有时称为HTML5和朋友，通常缩写为HTML5。<br>​	</p>
+<pre><code>    HTML5     约等于     HTML + CSS + JS
+</code></pre>
+<h3 id="Html5优势"><a href="#Html5优势" class="headerlink" title="Html5优势"></a>Html5优势</h3><p>​	跨平台:唯一一个通吃PC MAC Iphone Android等主流平台的跨平台语言<br>​	快速迭代<br>​	降低成本<br>​	导流入口多<br>​	分发效率高<br>​	</p>
+<p>​		</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -816,6 +697,25 @@ function removeClass(node,className){
       </tags>
   </entry>
   <entry>
+    <title>H5_canvas贝塞尔</title>
+    <url>/2022/08/20/05_canvas(%E8%B4%9D%E5%A1%9E%E5%B0%94)/</url>
+    <content><![CDATA[<h3 id="二次贝塞尔"><a href="#二次贝塞尔" class="headerlink" title="二次贝塞尔"></a>二次贝塞尔</h3><pre><code>quadraticCurveTo(cp1x, cp1y, x, y)
+    绘制二次贝塞尔曲线，cp1x,cp1y为一个控制点，x,y为结束点。
+    起始点为moveto时指定的点
+</code></pre>
+<h3 id="三次贝塞尔"><a href="#三次贝塞尔" class="headerlink" title="三次贝塞尔"></a>三次贝塞尔</h3><pre><code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+    绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
+    起始点为moveto时指定的点
+</code></pre>
+]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>H5概述 语义化标签</title>
     <url>/2022/08/20/04_%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<pre><code>在HTML 5出来之前，我们用div来表示页面头部，章节，页脚等。但是这些div都没有实际意义。
@@ -939,16 +839,116 @@ nav元素代表页面的导航链接区域。用于定义页面的主要导航�
       </tags>
   </entry>
   <entry>
-    <title>H5_canvas贝塞尔</title>
-    <url>/2022/08/20/05_canvas(%E8%B4%9D%E5%A1%9E%E5%B0%94)/</url>
-    <content><![CDATA[<h3 id="二次贝塞尔"><a href="#二次贝塞尔" class="headerlink" title="二次贝塞尔"></a>二次贝塞尔</h3><pre><code>quadraticCurveTo(cp1x, cp1y, x, y)
-    绘制二次贝塞尔曲线，cp1x,cp1y为一个控制点，x,y为结束点。
-    起始点为moveto时指定的点
+    <title>H5表单</title>
+    <url>/2022/08/18/02_%E7%96%AF%E7%8B%82%E7%9A%84%E8%A1%A8%E5%8D%95/</url>
+    <content><![CDATA[<pre><code>Html5 Forms概述,在Html5中:
+    1.表单仍然使用&lt;form&gt;元素作为容器,我们可以在其中设置基本的提交特性
+        form的action指向一个服务器地址（接口）
+    2.当用户或开发人员提交页面时,表单仍然用于向服务端发送表单中控件的值
+        注意表单项的name属性必须有值，服务器才能获取表单
+    3.所有之前的表单控件都保持不变
+    4.仍然可以使用脚本操作表单控件
+    5.Htnl5之前的表单
+        标签为input
+            type:text:文本框
+            type:password:密码框
+            type:radio:单选按钮
+                注意以name分组，确保单选关系，也为了后台能成功获取
+                必须有value属性，为了后台获取后的识别（不写统一为on）
+                checked属性,选中控制
+            type:checkbox:复选框
+                注意以name分组，确保为一组，也为了后台能成功获取
+                必须有value属性，为了后台获取后的识别（不写统一为on）
+                checked属性,选中控制
+            type:submit:提交按钮
+            type:reset:重置按钮
+            type:button:普通按钮
+        
+        标签为select:下拉框
+            name属性在select标签上
+            multiple:可选多项
+            子项可以通过optgroup来进行分组
+                label属性用来定义组名
+                子项为option标签
+                    selected属性,选中控制
+                    必须有value属性,为了后台获取后的识别
+        
+        标签为textarea:文本域
+        
+        标签为button:按钮
+            type:submit:提交按钮
+            type:reset:重置按钮
+            type:button:普通按钮
+            
+        标签为lable:控制文本与表单的关系
+            for属性指向一个input的id
+            
+        标签fieldset 标签legend:来为表单分组	
+                
+    6.attr &amp; prop
+    7.Html5 新增
 </code></pre>
-<h3 id="三次贝塞尔"><a href="#三次贝塞尔" class="headerlink" title="三次贝塞尔"></a>三次贝塞尔</h3><pre><code>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
-    绘制三次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。
-    起始点为moveto时指定的点
+<h3 id="新增表单控件"><a href="#新增表单控件" class="headerlink" title="新增表单控件"></a>新增表单控件</h3><pre><code>    1.type:email :email地址类型
+        当格式不符合email格式时，提交是不会成功的，会出现提示；只有当格式相符时，提交才会通过
+        在移动端获焦的时候会切换到英文键盘
+        
+    2.type:tel :电话类型
+        在移动端获焦的时候会切换到数字键盘
+    
+    3.type:url :url类型
+        当格式不符合url格式时，提交是不会成功的，会出现提示；只有当格式相符时，提交才会通过
+        
+    4.type:search :搜索类型
+        有清空文本的按钮
+        
+    5.type:range  :  特定范围内的数值选择器
+        属性:min、max、step
+    
+    6.
+      type:number          :  只能包含数字的输入框
+      type:color  	       		:  颜色选择器
+      type:datetime        	 :  显示完整日期(移动端浏览器支持)
+      type:datetime-local  :  显示完整日期，不含时区
+      type:time            :  显示时间，不含时区
+      type:date            :  显示日期
+      type:week            :  显示周
+      type:month           :  显示月
 </code></pre>
+<p>​			</p>
+<h3 id="新增表单属性"><a href="#新增表单属性" class="headerlink" title="新增表单属性"></a>新增表单属性</h3><pre><code>    placeholder  :  输入框提示信息
+        适用于form,以及type为text,search,url,tel,email,password类型的input
+        
+    autofocus  :  指定表单获取输入焦点
+    
+    required  :  此项必填，不能为空
+    
+    pattern : 正则验证  pattern="\d{1,5}
+    
+    formaction 在submit里定义提交地址
+    
+    list和datalist  :  为输入框构造一个选择列表
+                        list值为datalist标签的id
+</code></pre>
+<p>​		<br>​		</p>
+<h3 id="表单验证反馈"><a href="#表单验证反馈" class="headerlink" title="表单验证反馈"></a>表单验证反馈</h3><pre><code>validity对象，通过下面的valid可以查看验证是否通过，如果八种验证都通过返回true，一种验证失败返回false
+node.addEventListener("invalid",fn1,false);
+
+valueMissing  	 :  输入值为空时返回true
+typeMismatch 	 :  控件值与预期类型不匹配返回true
+patternMismatch  :  输入值不满足pattern正则返回true
+
+tooLong  		 :  超过maxLength最大限制返回true
+rangeUnderflow   :  验证的range最小值返回true
+rangeOverflow    :  验证的range最大值返回true
+stepMismatch     :  验证range 的当前值 是否符合min、max及step的规则返回true
+
+customError 不符合自定义验证返回true
+    setCustomValidity
+</code></pre>
+<h3 id="关闭验证"><a href="#关闭验证" class="headerlink" title="关闭验证"></a>关闭验证</h3><pre><code>formnovalidate属性
+</code></pre>
+<p>​		</p>
+<p>​		</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -1031,49 +1031,6 @@ scale(x, y)
       </tags>
   </entry>
   <entry>
-    <title>H5 canvas像素</title>
-    <url>/2022/08/20/09_canvas(%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C)/</url>
-    <content><![CDATA[<h3 id="在canvas中的像素操作"><a href="#在canvas中的像素操作" class="headerlink" title="在canvas中的像素操作"></a>在canvas中的像素操作</h3><pre><code>    到目前为止，我们尚未深入了解Canvas画布真实像素的原理，事实上，
-你可以直接通过ImageData对象操纵像素数据，直接读取或将数据数组写入该对象中
-</code></pre>
-<h3 id="得到场景像素数据"><a href="#得到场景像素数据" class="headerlink" title="得到场景像素数据"></a>得到场景像素数据</h3><pre><code>getImageData():获得一个包含画布场景像素数据的ImageData对像,它代表了画布区域的对象数据
-
-ctx.getImageData(sx, sy, sw, sh)
-    sx:将要被提取的图像数据矩形区域的左上角 x 坐标。
-    sy:将要被提取的图像数据矩形区域的左上角 y 坐标。
-    sw:将要被提取的图像数据矩形区域的宽度。
-    sh:将要被提取的图像数据矩形区域的高度。
-</code></pre>
-<h3 id="ImageData对象"><a href="#ImageData对象" class="headerlink" title="ImageData对象"></a>ImageData对象</h3><pre><code>ImageData对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性：
-    width:图片宽度，单位是像素
-    height:图片高度，单位是像素
-    data:Uint8ClampedArray类型的一维数组，
-        包含着RGBA格式的整型数据，范围在0至255之间（包括255）
-        R:0 --&gt; 255(黑色到白色)
-        G:0 --&gt; 255(黑色到白色)
-        B:0 --&gt; 255(黑色到白色)
-        A:0 --&gt; 255(透明到不透明)
-</code></pre>
-<h3 id="在场景中写入像素数据"><a href="#在场景中写入像素数据" class="headerlink" title="在场景中写入像素数据"></a>在场景中写入像素数据</h3><pre><code>putImageData()方法去对场景进行像素数据的写入。
-putImageData(myImageData, dx, dy)
-    dx和dy参数表示你希望在场景内左上角绘制的像素数据所得到的设备坐标
-</code></pre>
-<h3 id="创建一个ImageData对象"><a href="#创建一个ImageData对象" class="headerlink" title="创建一个ImageData对象"></a>创建一个ImageData对象</h3><pre><code>ctx.createImageData(width, height);
-    width : ImageData 新对象的宽度。
-    height: ImageData 新对象的高度。
-    
-默认创建出来的是透明的
-</code></pre>
-<h3 id="操作单个像素（行与列）"><a href="#操作单个像素（行与列）" class="headerlink" title="操作单个像素（行与列）"></a>操作单个像素（行与列）</h3><h3 id="马赛克"><a href="#马赛克" class="headerlink" title="马赛克"></a>马赛克</h3><p>​	<br>​	<br>​	</p>
-]]></content>
-      <categories>
-        <category>HTML5</category>
-      </categories>
-      <tags>
-        <tag>HTML5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>H5_ canvas文本</title>
     <url>/2022/08/20/08_canvas(%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC)/</url>
     <content><![CDATA[<h3 id="在canvas中绘制文本"><a href="#在canvas中绘制文本" class="headerlink" title="在canvas中绘制文本"></a>在canvas中绘制文本</h3><pre><code>canvas 提供了两种方法来渲染文本:
@@ -1123,29 +1080,17 @@ shadowColor = color(必需项)
       </tags>
   </entry>
   <entry>
-    <title>H5_canvas合成</title>
-    <url>/2022/08/20/10_canvas(%E5%90%88%E6%88%90)/</url>
-    <content><![CDATA[<h3 id="全局透明度的设置"><a href="#全局透明度的设置" class="headerlink" title="全局透明度的设置"></a>全局透明度的设置</h3><pre><code>globalAlpha = value
-    这个属性影响到 canvas 里所有图形的透明度，
-    有效的值范围是 0.0 （完全透明）到 1.0（完全不透明）
-    默认是 1.0
+    <title>H5其他</title>
+    <url>/2022/08/20/11_canvas(others)/</url>
+    <content><![CDATA[<h3 id="将画布导出为图像"><a href="#将画布导出为图像" class="headerlink" title="将画布导出为图像"></a>将画布导出为图像</h3><pre><code>toDataURL(注意是canvas元素接口上的方法)
 </code></pre>
-<h3 id="覆盖合成"><a href="#覆盖合成" class="headerlink" title="覆盖合成"></a>覆盖合成</h3><pre><code>source:新的图像(源)
-destination:已经绘制过的图形(目标)
+<h3 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h3><pre><code>ctx.isPointInPath(x, y)
+    判断在当前路径中是否包含检测点
+        x:检测点的X坐标
+        y:检测点的Y坐标
 
-globalCompositeOperation
-    source-over(默认值):源在上面,新的图像层级比较高
-    source-in  :只留下源与目标的重叠部分(源的那一部分)
-    source-out :只留下源超过目标的部分
-    source-atop:砍掉源溢出的部分
-    
-    destination-over:目标在上面,旧的图像层级比较高
-    destination-in:只留下源与目标的重叠部分(目标的那一部分)
-    destination-out:只留下目标超过源的部分
-    destination-atop:砍掉目标溢出的部分
+注意，此方法只作用于最新画出的canvas图像
 </code></pre>
-<p>​		<br>​	<br>​	<br>​		<br>​		</p>
-<p>​		<br>​	<br>​	<br>​	</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -1207,17 +1152,29 @@ globalCompositeOperation
       </tags>
   </entry>
   <entry>
-    <title>H5其他</title>
-    <url>/2022/08/20/11_canvas(others)/</url>
-    <content><![CDATA[<h3 id="将画布导出为图像"><a href="#将画布导出为图像" class="headerlink" title="将画布导出为图像"></a>将画布导出为图像</h3><pre><code>toDataURL(注意是canvas元素接口上的方法)
+    <title>H5_canvas合成</title>
+    <url>/2022/08/20/10_canvas(%E5%90%88%E6%88%90)/</url>
+    <content><![CDATA[<h3 id="全局透明度的设置"><a href="#全局透明度的设置" class="headerlink" title="全局透明度的设置"></a>全局透明度的设置</h3><pre><code>globalAlpha = value
+    这个属性影响到 canvas 里所有图形的透明度，
+    有效的值范围是 0.0 （完全透明）到 1.0（完全不透明）
+    默认是 1.0
 </code></pre>
-<h3 id="事件操作"><a href="#事件操作" class="headerlink" title="事件操作"></a>事件操作</h3><pre><code>ctx.isPointInPath(x, y)
-    判断在当前路径中是否包含检测点
-        x:检测点的X坐标
-        y:检测点的Y坐标
+<h3 id="覆盖合成"><a href="#覆盖合成" class="headerlink" title="覆盖合成"></a>覆盖合成</h3><pre><code>source:新的图像(源)
+destination:已经绘制过的图形(目标)
 
-注意，此方法只作用于最新画出的canvas图像
+globalCompositeOperation
+    source-over(默认值):源在上面,新的图像层级比较高
+    source-in  :只留下源与目标的重叠部分(源的那一部分)
+    source-out :只留下源超过目标的部分
+    source-atop:砍掉源溢出的部分
+    
+    destination-over:目标在上面,旧的图像层级比较高
+    destination-in:只留下源与目标的重叠部分(目标的那一部分)
+    destination-out:只留下目标超过源的部分
+    destination-atop:砍掉目标溢出的部分
 </code></pre>
+<p>​		<br>​	<br>​	<br>​		<br>​		</p>
+<p>​		<br>​	<br>​	<br>​	</p>
 ]]></content>
       <categories>
         <category>HTML5</category>
@@ -1227,16 +1184,46 @@ globalCompositeOperation
       </tags>
   </entry>
   <entry>
-    <title>APS.NET 01</title>
-    <url>/2022/09/05/ASP.NET01/</url>
-    <content><![CDATA[<hr>
-<h5 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h5><p>​	html css javascript…</p>
+    <title>H5 canvas像素</title>
+    <url>/2022/08/20/09_canvas(%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C)/</url>
+    <content><![CDATA[<h3 id="在canvas中的像素操作"><a href="#在canvas中的像素操作" class="headerlink" title="在canvas中的像素操作"></a>在canvas中的像素操作</h3><pre><code>    到目前为止，我们尚未深入了解Canvas画布真实像素的原理，事实上，
+你可以直接通过ImageData对象操纵像素数据，直接读取或将数据数组写入该对象中
+</code></pre>
+<h3 id="得到场景像素数据"><a href="#得到场景像素数据" class="headerlink" title="得到场景像素数据"></a>得到场景像素数据</h3><pre><code>getImageData():获得一个包含画布场景像素数据的ImageData对像,它代表了画布区域的对象数据
+
+ctx.getImageData(sx, sy, sw, sh)
+    sx:将要被提取的图像数据矩形区域的左上角 x 坐标。
+    sy:将要被提取的图像数据矩形区域的左上角 y 坐标。
+    sw:将要被提取的图像数据矩形区域的宽度。
+    sh:将要被提取的图像数据矩形区域的高度。
+</code></pre>
+<h3 id="ImageData对象"><a href="#ImageData对象" class="headerlink" title="ImageData对象"></a>ImageData对象</h3><pre><code>ImageData对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性：
+    width:图片宽度，单位是像素
+    height:图片高度，单位是像素
+    data:Uint8ClampedArray类型的一维数组，
+        包含着RGBA格式的整型数据，范围在0至255之间（包括255）
+        R:0 --&gt; 255(黑色到白色)
+        G:0 --&gt; 255(黑色到白色)
+        B:0 --&gt; 255(黑色到白色)
+        A:0 --&gt; 255(透明到不透明)
+</code></pre>
+<h3 id="在场景中写入像素数据"><a href="#在场景中写入像素数据" class="headerlink" title="在场景中写入像素数据"></a>在场景中写入像素数据</h3><pre><code>putImageData()方法去对场景进行像素数据的写入。
+putImageData(myImageData, dx, dy)
+    dx和dy参数表示你希望在场景内左上角绘制的像素数据所得到的设备坐标
+</code></pre>
+<h3 id="创建一个ImageData对象"><a href="#创建一个ImageData对象" class="headerlink" title="创建一个ImageData对象"></a>创建一个ImageData对象</h3><pre><code>ctx.createImageData(width, height);
+    width : ImageData 新对象的宽度。
+    height: ImageData 新对象的高度。
+    
+默认创建出来的是透明的
+</code></pre>
+<h3 id="操作单个像素（行与列）"><a href="#操作单个像素（行与列）" class="headerlink" title="操作单个像素（行与列）"></a>操作单个像素（行与列）</h3><h3 id="马赛克"><a href="#马赛克" class="headerlink" title="马赛克"></a>马赛克</h3><p>​	<br>​	<br>​	</p>
 ]]></content>
       <categories>
-        <category>APS.NET</category>
+        <category>HTML5</category>
       </categories>
       <tags>
-        <tag>APS.NET</tag>
+        <tag>HTML5</tag>
       </tags>
   </entry>
   <entry>
@@ -1329,6 +1316,163 @@ globalCompositeOperation
       <tags>
         <tag>数据库</tag>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery2</title>
+    <url>/2022/08/10/jQuery3/</url>
+    <content><![CDATA[<hr>
+<ol>
+<li>CSS模块</li>
+</ol>
+<ul>
+<li>style样式<ul>
+<li>css(styleName): 根据样式名得到对应的值</li>
+<li>css(styleName, value): 设置一个样式</li>
+<li>css({多个样式对}): 设置多个样式</li>
+</ul>
+</li>
+<li>位置坐标<ul>
+<li>offset(): 读/写当前元素坐标(原点是页面左上角)</li>
+<li>position(): 读当前元素坐标(原点是父元素左上角)</li>
+<li>scrollTop()/scrollLeft(): 读/写元素/页面的滚动条坐标</li>
+</ul>
+</li>
+<li>尺寸<ul>
+<li>width()/height(): width/height</li>
+<li>innerWidth()/innerHeight(): width + padding</li>
+<li>outerWidth()/outerHeight(): width + padding + border</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>筛选模块</li>
+</ol>
+<ul>
+<li>过滤<ul>
+<li>在jQuery对象内部的元素中找出部分匹配的元素, 并封装成新的jQuery对象返回</li>
+<li>first()</li>
+<li>last()</li>
+<li>eq(index)</li>
+<li>filter(selector): 对当前元素提要求</li>
+<li>not(selector): 对当前元素提要求, 并取反</li>
+<li>has(selector): 对子孙元素提要求</li>
+</ul>
+</li>
+<li>查找<ul>
+<li>查找jQuery对象内部的元素的子孙/兄弟/父母元素, 并封装成新的jQuery对象返回</li>
+<li>children(selector): 子元素</li>
+<li>find(selector): 后代元素</li>
+<li>preAll(selector): 前的所有兄弟</li>
+<li>siblings(selector): 所有兄弟</li>
+<li>parent(): 父元素</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>文档处理(CUD)模块</li>
+</ol>
+<ul>
+<li>增加<ul>
+<li>append() / appendTo(): 插入后部</li>
+<li>preppend() / preppendTo(): 插入前部</li>
+<li>before(): 插到前面</li>
+<li>after(): 插到后面</li>
+</ul>
+</li>
+<li>删除<ul>
+<li>remove(): 将自己及内部的孩子都删除</li>
+<li>empty(): 掏空(自己还在)</li>
+</ul>
+</li>
+<li>更新<ul>
+<li>replaceWith()</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>事件模块</li>
+</ol>
+<ul>
+<li>绑定事件<ul>
+<li>eventName(function(){})</li>
+<li>on(‘eventName’, function(){})</li>
+<li>常用: click, mouseenter/mouseleave mouseover/mouseout focus/blur</li>
+<li>hover(function(){}, function(){})</li>
+</ul>
+</li>
+<li>解绑事件<ul>
+<li>off(‘eventName’)</li>
+</ul>
+</li>
+<li>事件委托<ul>
+<li>理解: 将子元素的事件委托给父辈元素处理<ul>
+<li>事件监听绑定在父元素上, 但事件发生在子元素上<br>*　事件会冒泡到父元素</li>
+<li>但最终调用的事件回调函数的是子元素: event.target</li>
+</ul>
+</li>
+<li>好处<ul>
+<li>新增的元素没有事件监听</li>
+<li>减少监听的数量(n==&gt;1)</li>
+</ul>
+</li>
+<li>编码<ul>
+<li>delegate(selector, ‘eventName’, function(event){}) // 回调函数中的this是子元素</li>
+<li>undelegate(‘eventName’)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件坐标<ul>
+<li>event.offsetX: 原点是当前元素左上角</li>
+<li>event.clientX: 原点是窗口左上角</li>
+<li>event.pageX: 原点是页面左上角</li>
+</ul>
+</li>
+<li>事件相关<ul>
+<li>停止事件冒泡: event.stopPropagation()</li>
+<li>阻止事件的默认行为: event.preventDefault()</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery3</title>
+    <url>/2022/08/09/jQuery2/</url>
+    <content><![CDATA[<hr>
+<ul>
+<li><p>动画效果</p>
+<ul>
+<li>在一定的时间内, 不断改变元素样式</li>
+<li>slideDown()/slideUp()/slideToggle()</li>
+<li>fadeOut()/fadeIn()/fadeToggle()</li>
+<li>show()/hide()/toggle()</li>
+<li>animate({结束时的样式}, time, fun)</li>
+<li>stop()</li>
+</ul>
+</li>
+<li><p>插件机制</p>
+<ul>
+<li>扩展jQuery函数对象的方法<br>$.extend({<br>  xxx: fuction () {} // this是$<br>})<br>$.xxx()</li>
+<li>扩展jQuery对象的方法<br>$.fn.extend({<br>  xxx: function(){}  // this是jQuery对象<br>})<br>$obj.xxx()</li>
+</ul>
+</li>
+<li><p>jQuery文档的结构图</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
       </tags>
   </entry>
   <entry>
@@ -1472,156 +1616,6 @@ globalCompositeOperation
       </categories>
       <tags>
         <tag>jQuery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jQuery2</title>
-    <url>/2022/08/10/jQuery3/</url>
-    <content><![CDATA[<hr>
-<ol>
-<li>CSS模块</li>
-</ol>
-<ul>
-<li>style样式<ul>
-<li>css(styleName): 根据样式名得到对应的值</li>
-<li>css(styleName, value): 设置一个样式</li>
-<li>css({多个样式对}): 设置多个样式</li>
-</ul>
-</li>
-<li>位置坐标<ul>
-<li>offset(): 读/写当前元素坐标(原点是页面左上角)</li>
-<li>position(): 读当前元素坐标(原点是父元素左上角)</li>
-<li>scrollTop()/scrollLeft(): 读/写元素/页面的滚动条坐标</li>
-</ul>
-</li>
-<li>尺寸<ul>
-<li>width()/height(): width/height</li>
-<li>innerWidth()/innerHeight(): width + padding</li>
-<li>outerWidth()/outerHeight(): width + padding + border</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>筛选模块</li>
-</ol>
-<ul>
-<li>过滤<ul>
-<li>在jQuery对象内部的元素中找出部分匹配的元素, 并封装成新的jQuery对象返回</li>
-<li>first()</li>
-<li>last()</li>
-<li>eq(index)</li>
-<li>filter(selector): 对当前元素提要求</li>
-<li>not(selector): 对当前元素提要求, 并取反</li>
-<li>has(selector): 对子孙元素提要求</li>
-</ul>
-</li>
-<li>查找<ul>
-<li>查找jQuery对象内部的元素的子孙/兄弟/父母元素, 并封装成新的jQuery对象返回</li>
-<li>children(selector): 子元素</li>
-<li>find(selector): 后代元素</li>
-<li>preAll(selector): 前的所有兄弟</li>
-<li>siblings(selector): 所有兄弟</li>
-<li>parent(): 父元素</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>文档处理(CUD)模块</li>
-</ol>
-<ul>
-<li>增加<ul>
-<li>append() / appendTo(): 插入后部</li>
-<li>preppend() / preppendTo(): 插入前部</li>
-<li>before(): 插到前面</li>
-<li>after(): 插到后面</li>
-</ul>
-</li>
-<li>删除<ul>
-<li>remove(): 将自己及内部的孩子都删除</li>
-<li>empty(): 掏空(自己还在)</li>
-</ul>
-</li>
-<li>更新<ul>
-<li>replaceWith()</li>
-</ul>
-</li>
-</ul>
-<ol start="4">
-<li>事件模块</li>
-</ol>
-<ul>
-<li>绑定事件<ul>
-<li>eventName(function(){})</li>
-<li>on(‘eventName’, function(){})</li>
-<li>常用: click, mouseenter/mouseleave mouseover/mouseout focus/blur</li>
-<li>hover(function(){}, function(){})</li>
-</ul>
-</li>
-<li>解绑事件<ul>
-<li>off(‘eventName’)</li>
-</ul>
-</li>
-<li>事件委托<ul>
-<li>理解: 将子元素的事件委托给父辈元素处理<ul>
-<li>事件监听绑定在父元素上, 但事件发生在子元素上<br>*　事件会冒泡到父元素</li>
-<li>但最终调用的事件回调函数的是子元素: event.target</li>
-</ul>
-</li>
-<li>好处<ul>
-<li>新增的元素没有事件监听</li>
-<li>减少监听的数量(n==&gt;1)</li>
-</ul>
-</li>
-<li>编码<ul>
-<li>delegate(selector, ‘eventName’, function(event){}) // 回调函数中的this是子元素</li>
-<li>undelegate(‘eventName’)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>事件坐标<ul>
-<li>event.offsetX: 原点是当前元素左上角</li>
-<li>event.clientX: 原点是窗口左上角</li>
-<li>event.pageX: 原点是页面左上角</li>
-</ul>
-</li>
-<li>事件相关<ul>
-<li>停止事件冒泡: event.stopPropagation()</li>
-<li>阻止事件的默认行为: event.preventDefault()</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jQuery</category>
-      </categories>
-      <tags>
-        <tag>jQuery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity变量</title>
-    <url>/2022/08/29/unity%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量结构："><a href="#变量结构：" class="headerlink" title="变量结构："></a>变量结构：</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="built_in">int</span> health <span class="comment">//其他代码文件也可以使用这些信息 会显示在unity界面中（方便频繁调试）</span></span><br><span class="line">      </span><br><span class="line"><span class="comment">//开放性  类型  名字</span></span><br><span class="line">      </span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> health <span class="comment">//局限于当前的脚本中</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h4><span id="more"></span>
-
-<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="comment">//整数</span></span><br><span class="line"><span class="built_in">float</span> <span class="comment">//小数</span></span><br><span class="line"><span class="built_in">bool</span> <span class="comment">//布尔值</span></span><br><span class="line"><span class="built_in">string</span> <span class="comment">//字符串</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/*应用变量 调用其他脚本的</span></span><br><span class="line"><span class="comment">Unity基于Game Object运作,一种隐形的容器，有着位置朝向尺寸。可以在其中填充各种组件强化功能,脚本也是其中之一。</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="keyword">public</span> Transform somewhere <span class="comment">//存储位置和朝向</span></span><br><span class="line"><span class="keyword">public</span> Color red <span class="comment">//存储颜色</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span>[] numberArray = <span class="keyword">new</span> <span class="built_in">int</span>[] {<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>};<span class="comment">//创建一个拥有三个变量整数的数组</span></span><br><span class="line"></span><br><span class="line">numberArray[<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//修改数组第一位</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>文件管理器右键创建一个脚本，双击打开。文件名 PlayeeMove (要一致，否则会出bug)</p>
-<p>代码：</p>
-<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="comment">//上面是引用空间,需要在这引入相应工具箱才能在接下来代码使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayeeMove</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed; <span class="comment">//声明变量,不去赋值会有相应的默认值不会出bug</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Vector3 playerInput; <span class="comment">//引用变量，它是存储三维空间中物体位置的组件 Vector3 == (x,y,z)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏场景出现后运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span>{</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏每一帧都运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span>{</span><br><span class="line">        <span class="comment">//时实检测玩家的方向键输入，然后将其转换成（0，0）的坐标值存储起来</span></span><br><span class="line">      playerInput = <span class="keyword">new</span> Vector3(Input.GetAxisRaw(<span class="string">"Horizontal"</span>),</span><br><span class="line">      Input.GetAxisRaw(<span class="string">"Vertical"</span>));  </span><br><span class="line">   </span><br><span class="line">        <span class="comment">//自带的工具箱，代表的是脚本绑定的Game Object的当前的位置</span></span><br><span class="line">        transform.position = playerInput*speed*Time.deltaTime</span><br><span class="line">        +transform.position;</span><br><span class="line">        <span class="comment">//Time.deltaTime代表时间的变量, 加上后可以让角色速度不受帧影响</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -2092,6 +2086,31 @@ globalCompositeOperation
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity变量</title>
+    <url>/2022/08/29/unity%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量结构："><a href="#变量结构：" class="headerlink" title="变量结构："></a>变量结构：</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="built_in">int</span> health <span class="comment">//其他代码文件也可以使用这些信息 会显示在unity界面中（方便频繁调试）</span></span><br><span class="line">      </span><br><span class="line"><span class="comment">//开放性  类型  名字</span></span><br><span class="line">      </span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> health <span class="comment">//局限于当前的脚本中</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="变量的类型"><a href="#变量的类型" class="headerlink" title="变量的类型"></a>变量的类型</h4><span id="more"></span>
+
+<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="comment">//整数</span></span><br><span class="line"><span class="built_in">float</span> <span class="comment">//小数</span></span><br><span class="line"><span class="built_in">bool</span> <span class="comment">//布尔值</span></span><br><span class="line"><span class="built_in">string</span> <span class="comment">//字符串</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/*应用变量 调用其他脚本的</span></span><br><span class="line"><span class="comment">Unity基于Game Object运作,一种隐形的容器，有着位置朝向尺寸。可以在其中填充各种组件强化功能,脚本也是其中之一。</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="keyword">public</span> Transform somewhere <span class="comment">//存储位置和朝向</span></span><br><span class="line"><span class="keyword">public</span> Color red <span class="comment">//存储颜色</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span>[] numberArray = <span class="keyword">new</span> <span class="built_in">int</span>[] {<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>};<span class="comment">//创建一个拥有三个变量整数的数组</span></span><br><span class="line"></span><br><span class="line">numberArray[<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//修改数组第一位</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>文件管理器右键创建一个脚本，双击打开。文件名 PlayeeMove (要一致，否则会出bug)</p>
+<p>代码：</p>
+<figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="comment">//上面是引用空间,需要在这引入相应工具箱才能在接下来代码使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayeeMove</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed; <span class="comment">//声明变量,不去赋值会有相应的默认值不会出bug</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Vector3 playerInput; <span class="comment">//引用变量，它是存储三维空间中物体位置的组件 Vector3 == (x,y,z)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏场景出现后运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span>{</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//游戏每一帧都运行</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span>{</span><br><span class="line">        <span class="comment">//时实检测玩家的方向键输入，然后将其转换成（0，0）的坐标值存储起来</span></span><br><span class="line">      playerInput = <span class="keyword">new</span> Vector3(Input.GetAxisRaw(<span class="string">"Horizontal"</span>),</span><br><span class="line">      Input.GetAxisRaw(<span class="string">"Vertical"</span>));  </span><br><span class="line">   </span><br><span class="line">        <span class="comment">//自带的工具箱，代表的是脚本绑定的Game Object的当前的位置</span></span><br><span class="line">        transform.position = playerInput*speed*Time.deltaTime</span><br><span class="line">        +transform.position;</span><br><span class="line">        <span class="comment">//Time.deltaTime代表时间的变量, 加上后可以让角色速度不受帧影响</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -2595,38 +2614,6 @@ globalCompositeOperation
       </categories>
       <tags>
         <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jQuery3</title>
-    <url>/2022/08/09/jQuery2/</url>
-    <content><![CDATA[<hr>
-<ul>
-<li><p>动画效果</p>
-<ul>
-<li>在一定的时间内, 不断改变元素样式</li>
-<li>slideDown()/slideUp()/slideToggle()</li>
-<li>fadeOut()/fadeIn()/fadeToggle()</li>
-<li>show()/hide()/toggle()</li>
-<li>animate({结束时的样式}, time, fun)</li>
-<li>stop()</li>
-</ul>
-</li>
-<li><p>插件机制</p>
-<ul>
-<li>扩展jQuery函数对象的方法<br>$.extend({<br>  xxx: fuction () {} // this是$<br>})<br>$.xxx()</li>
-<li>扩展jQuery对象的方法<br>$.fn.extend({<br>  xxx: function(){}  // this是jQuery对象<br>})<br>$obj.xxx()</li>
-</ul>
-</li>
-<li><p>jQuery文档的结构图</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>jQuery</category>
-      </categories>
-      <tags>
-        <tag>jQuery</tag>
       </tags>
   </entry>
   <entry>
