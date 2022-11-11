@@ -64,7 +64,7 @@
 		
 		
 		<nav>
-    总文章数 31
+    总文章数 33
 </nav>
 
 		
@@ -157,6 +157,256 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-09_canvas(像素操作)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/20/09_canvas(%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C)/">H5 canvas像素</a>
+    </h1>
+  
+
+		
+		
+
+
+
+		
+        
+        <a href="/2022/08/20/09_canvas(%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C)/" class="archive-article-date">
+  	<time datetime="2022-08-20T03:15:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="在canvas中的像素操作"><a href="#在canvas中的像素操作" class="headerlink" title="在canvas中的像素操作"></a>在canvas中的像素操作</h3><pre><code>    到目前为止，我们尚未深入了解Canvas画布真实像素的原理，事实上，
+你可以直接通过ImageData对象操纵像素数据，直接读取或将数据数组写入该对象中
+</code></pre>
+<h3 id="得到场景像素数据"><a href="#得到场景像素数据" class="headerlink" title="得到场景像素数据"></a>得到场景像素数据</h3><pre><code>getImageData():获得一个包含画布场景像素数据的ImageData对像,它代表了画布区域的对象数据
+
+ctx.getImageData(sx, sy, sw, sh)
+    sx:将要被提取的图像数据矩形区域的左上角 x 坐标。
+    sy:将要被提取的图像数据矩形区域的左上角 y 坐标。
+    sw:将要被提取的图像数据矩形区域的宽度。
+    sh:将要被提取的图像数据矩形区域的高度。
+</code></pre>
+<h3 id="ImageData对象"><a href="#ImageData对象" class="headerlink" title="ImageData对象"></a>ImageData对象</h3><pre><code>ImageData对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性：
+    width:图片宽度，单位是像素
+    height:图片高度，单位是像素
+    data:Uint8ClampedArray类型的一维数组，
+        包含着RGBA格式的整型数据，范围在0至255之间（包括255）
+        R:0 --&gt; 255(黑色到白色)
+        G:0 --&gt; 255(黑色到白色)
+        B:0 --&gt; 255(黑色到白色)
+        A:0 --&gt; 255(透明到不透明)
+</code></pre>
+<h3 id="在场景中写入像素数据"><a href="#在场景中写入像素数据" class="headerlink" title="在场景中写入像素数据"></a>在场景中写入像素数据</h3><pre><code>putImageData()方法去对场景进行像素数据的写入。
+putImageData(myImageData, dx, dy)
+    dx和dy参数表示你希望在场景内左上角绘制的像素数据所得到的设备坐标
+</code></pre>
+<h3 id="创建一个ImageData对象"><a href="#创建一个ImageData对象" class="headerlink" title="创建一个ImageData对象"></a>创建一个ImageData对象</h3><pre><code>ctx.createImageData(width, height);
+    width : ImageData 新对象的宽度。
+    height: ImageData 新对象的高度。
+    
+默认创建出来的是透明的
+</code></pre>
+<h3 id="操作单个像素（行与列）"><a href="#操作单个像素（行与列）" class="headerlink" title="操作单个像素（行与列）"></a>操作单个像素（行与列）</h3><h3 id="马赛克"><a href="#马赛克" class="headerlink" title="马赛克"></a>马赛克</h3><p>​	<br>​	<br>​	</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/HTML5//" class="article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/20/09_canvas(%E5%83%8F%E7%B4%A0%E6%93%8D%E4%BD%9C)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-08_canvas(绘制文本)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/20/08_canvas(%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC)/">H5_ canvas文本</a>
+    </h1>
+  
+
+		
+		
+
+
+
+		
+        
+        <a href="/2022/08/20/08_canvas(%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC)/" class="archive-article-date">
+  	<time datetime="2022-08-20T03:15:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="在canvas中绘制文本"><a href="#在canvas中绘制文本" class="headerlink" title="在canvas中绘制文本"></a>在canvas中绘制文本</h3><pre><code>canvas 提供了两种方法来渲染文本:
+    fillText(text, x, y)
+        在指定的(x,y)位置填充指定的文本
+    strokeText(text, x, y)
+        在指定的(x,y)位置绘制文本边框
+</code></pre>
+<h3 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h3><pre><code>font = value
+    当前我们用来绘制文本的样式. 这个字符串使用和 CSS font 属性相同的语法. 
+    默认的字体是 10px sans-serif。
+    font属性在指定时，必须要有大小和字体 缺一不可
+    
+textAlign = value
+    文本对齐选项. 可选的值包括： left, right  center. 
+    left
+        文本左对齐。
+    right
+        文本右对齐。
+    center
+        文本居中对齐。
+        这里的textAlign="center"比较特殊。textAlign的值为center时候
+        文本的居中是基于你在fillText的时候所给的x的值，
+        也就是说文本一半在x的左边，一半在x的右边
+</code></pre>
+<p>​	<br>    textBaseline = value<br>        描述绘制文本时，当前文本基线的属性。<br>        top<br>            文本基线在文本块的顶部。<br>        middle<br>            文本基线在文本块的中间。<br>        bottom<br>            文本基线在文本块的底部。</p>
+<h3 id="measureText"><a href="#measureText" class="headerlink" title="measureText"></a>measureText</h3><pre><code>measureText() 方法返回一个 TextMetrics 对象，包含关于文本尺寸的信息（例如文本的宽度）
+</code></pre>
+<h3 id="canvas中文本水平垂直居中"><a href="#canvas中文本水平垂直居中" class="headerlink" title="canvas中文本水平垂直居中"></a>canvas中文本水平垂直居中</h3><h3 id="阴影-文本阴影-amp-盒模型阴影"><a href="#阴影-文本阴影-amp-盒模型阴影" class="headerlink" title="阴影(文本阴影&amp;盒模型阴影)"></a>阴影(文本阴影&amp;盒模型阴影)</h3><pre><code>shadowOffsetX = float
+    shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
+    它们默认都为 0。
+shadowOffsetY = float
+    shadowOffsetX 和 shadowOffsetY 用来设定阴影在 X 和 Y 轴的延伸距离，
+    它们默认都为 0。
+shadowBlur = float
+    shadowBlur 用于设定阴影的模糊程度，其数值并不跟像素数量挂钩，也不受变换矩阵的影响，默认为 0。
+shadowColor = color(必需项)
+    shadowColor 是标准的 CSS 颜色值，用于设定阴影颜色效果，默认是全透明的黑色。
+</code></pre>
+<p>​	<br>​		</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/HTML5//" class="article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/20/08_canvas(%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%AC)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-07_canvas(使用图片&amp;设置背景)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1202,312 +1452,6 @@ fill()
 
 
   
-    <article id="post-03_资源&amp;参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/20/03_%E8%B5%84%E6%BA%90&%E5%8F%82%E6%95%B0/">H5资源参数</a>
-    </h1>
-  
-
-		
-		
-
-
-
-		
-        
-        <a href="/2022/08/20/03_%E8%B5%84%E6%BA%90&%E5%8F%82%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2022-08-20T03:15:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="http-s8-qhimg-com-share-audio-piano1-a4-mp3"><a href="#http-s8-qhimg-com-share-audio-piano1-a4-mp3" class="headerlink" title="http://s8.qhimg.com/share/audio/piano1/a4.mp3"></a><a target="_blank" rel="noopener" href="http://s8.qhimg.com/share/audio/piano1/a4.mp3">http://s8.qhimg.com/share/audio/piano1/a4.mp3</a></h3><h3 id="http-www-17sucai-com-preview-87827-2017-11-07-video1-video-mp4"><a href="#http-www-17sucai-com-preview-87827-2017-11-07-video1-video-mp4" class="headerlink" title="http://www.17sucai.com/preview/87827/2017-11-07/video1/video.mp4"></a><a target="_blank" rel="noopener" href="http://www.17sucai.com/preview/87827/2017-11-07/video1/video.mp4">http://www.17sucai.com/preview/87827/2017-11-07/video1/video.mp4</a></h3><h3 id="http-www-17sucai-com-preview-501914-2017-08-04-E9-A1-B5-E9-9D-A2-media-mov-bbb-mp4"><a href="#http-www-17sucai-com-preview-501914-2017-08-04-E9-A1-B5-E9-9D-A2-media-mov-bbb-mp4" class="headerlink" title="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4"></a><a target="_blank" rel="noopener" href="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4">http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4</a></h3><h3 id="自定义播放器主要参数"><a href="#自定义播放器主要参数" class="headerlink" title="自定义播放器主要参数"></a>自定义播放器主要参数</h3><pre><code>全局背景色：#383838
-底部控制条：25px 高度
-底部控制条背景色:#2A2A2A
-
-主进度条的大小:宽度自适应,两边margin:55 230
-    进度条的高度:3px 背景色:#737373
-    进度条小方块尺寸:宽9 * 高7 ; 背景白色 ; 2px圆角
-</code></pre>
-<p>​	<br>    按钮排的大小:宽55 * 高25<br>        按钮大小:宽9 * 高11</p>
-<p>​		<br>    右侧信息栏的大小:宽230 * 高25<br>        文字部分:宽120<br>            字体大小:12px<br>            颜色:white</p>
-<pre><code>    声音:宽80
-        切换控件:宽20 高25
-            子项:	margin: 7px auto;
-                    width: 12px;
-                    height: 12px;
-                    background: url(images/icon.png) no-repeat;
-                    background-position:0 -34px;
-                    
-                    active:background-position: 0 -46px;
-        进度条:宽60 高25
-
-    全屏:宽30
-          子项:display: inline-block;
-             margin: 7px auto;
-             width: 11px;
-             height: 11px;
-             background: url(images/icon.png) no-repeat;
-             background-position: 0 -58px;
-             
-             active:background-position: 0 -70px;
-</code></pre>
-<h3 id="class操作函数"><a href="#class操作函数" class="headerlink" title="class操作函数"></a>class操作函数</h3><pre><code>function addClass(node,className){
-    var reg=new RegExp("\\b"+className+"\\b");
-    if(!reg.test(node.className)){
-        node.className +=(" "+className); 
-    }
-}
-function removeClass(node,className){
-    if(node.className){
-        var reg=new RegExp("\\b"+className+"\\b");
-        var classes = node.className;
-        node.className=classes.replace(reg,"");
-        if(/^\s*$/g.test(node.className)){
-            node.removeAttribute("class");
-        }
-    }else{
-        node.removeAttribute("class");
-    }
-}
-</code></pre>
-<h3 id="全屏实现"><a href="#全屏实现" class="headerlink" title="全屏实现"></a>全屏实现</h3><pre><code>full.onclick=function() {
-    if(isFullScreen) {
-        isFullScreen = false
-        if (document.exitFullscreen) {  
-            document.exitFullscreen();  
-        }  
-        else if (document.mozCancelFullScreen) {  
-            document.mozCancelFullScreen();  
-        }  
-        else if (document.webkitCancelFullScreen) {  
-            document.webkitCancelFullScreen();  
-        }
-        else if (document.msExitFullscreen) {
-              document.msExitFullscreen();
-        }
-    } else {
-        isFullScreen = true
-        var docElm = document.documentElement;
-        //W3C  
-        if (docElm.requestFullscreen) {  
-            docElm.requestFullscreen();  
-        }
-        //FireFox  
-        else if (docElm.mozRequestFullScreen) {  
-            docElm.mozRequestFullScreen();  
-        }
-        //Chrome等  
-        else if (docElm.webkitRequestFullScreen) {  
-            docElm.webkitRequestFullScreen();  
-        }
-        //IE11
-        else if (docElm.msRequestFullscreen) {
-          docElm.msRequestFullscreen();
-        }
-    }
-}
-</code></pre>
-<h3 id="window10-下环境变量的入口"><a href="#window10-下环境变量的入口" class="headerlink" title="window10 下环境变量的入口"></a>window10 下环境变量的入口</h3><pre><code>控制面板--&gt;选择大图标--&gt;系统--&gt;高级系统设置--&gt;高级--&gt;环境变量
-</code></pre>
-<h3 id="video写法"><a href="#video写法" class="headerlink" title="video写法"></a>video写法</h3><pre><code>&lt;video width="800" height=""&gt;
-    &lt;source src="myvideo.mp4" type="video/mp4"&gt;&lt;/source&gt;
-    &lt;source src="myvideo.ogv" type="video/ogg"&gt;&lt;/source&gt;
-    &lt;source src="myvideo.webm" type="video/webm"&gt;&lt;/source&gt;
-    &lt;object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf"&gt;
-        &lt;param name="movie" value="myvideo.swf" /&gt;
-        &lt;param name="flashvars" value="autostart=true&amp;amp;file=myvideo.swf" /&gt;
-    &lt;/object&gt;
-    当前浏览器不支持 video直接播放，点击这里下载视频： &lt;a href="myvideo.webm"&gt;下载视频&lt;/a&gt;
-&lt;/video&gt;
-</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/HTML5//" class="article-tag-list-link color1">HTML5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/20/03_%E8%B5%84%E6%BA%90&%E5%8F%82%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-03_其他新增标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/20/03_%E5%85%B6%E4%BB%96%E6%96%B0%E5%A2%9E%E6%A0%87%E7%AD%BE/">H5新增加标签</a>
-    </h1>
-  
-
-		
-		
-
-
-
-		
-        
-        <a href="/2022/08/20/03_%E5%85%B6%E4%BB%96%E6%96%B0%E5%A2%9E%E6%A0%87%E7%AD%BE/" class="archive-article-date">
-  	<time datetime="2022-08-20T03:15:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>meter:用来显示已知范围的标量值或者分数值。
-    value:当前的数值。
-    min:值域的最小边界值。如果设置了，它必须比最大值要小。如果没设置，默认为0
-    max:值域的上限边界值。如果设置了，它必须比最小值要大。如果没设置，默认为1
-    low:定义了低值区间的上限值,如果设置了，它必须比最小值属性大，并且不能超过high值和最大值。未设置或者比最小值还要小时，其值即为最小值。
-    high:定义了高值区间的下限值。如果设置了，它必须小于最大值，同时必须大于low值和最小值。如果没有设置，或者比最大值还大，其值即为最大值。
-    optimum:这个属性用来指示最优/最佳取值。
-
-progress:用来显示一项任务的完成进度
-    max:该属性描述了这个progress元素所表示的任务一共需要完成多少工作.
-    value：该属性用来指定该进度条已完成的工作量.
-            如果没有value属性,则该进度条的进度为"不确定",
-            也就是说,进度条不会显示任何进度,你无法估计当前的工作会在何时完成
-</code></pre>
-<h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><pre><code>datalist:datalist会包含一组option元素，这些元素表示其表单控件的可选值
-            它的id必须要和input中的list一致
-
-details: 一个ui小部件，用户可以从其中检索附加信息。
-        open属性来控制附加信息的显示与隐藏
-summary:用作 一个&lt;details&gt;元素的一个内容摘要（标题）
-</code></pre>
-<h3 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h3><pre><code>ruby
-rt: 展示文字注音或字符注释。
-</code></pre>
-<h3 id="标记标签"><a href="#标记标签" class="headerlink" title="标记标签"></a>标记标签</h3><pre><code>marK:着重
-</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/HTML5//" class="article-tag-list-link color1">HTML5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/20/03_%E5%85%B6%E4%BB%96%E6%96%B0%E5%A2%9E%E6%A0%87%E7%AD%BE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1620,15 +1564,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APS.NET</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

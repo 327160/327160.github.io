@@ -64,7 +64,7 @@
 		
 		
 		<nav>
-    总文章数 31
+    总文章数 33
 </nav>
 
 		
@@ -157,6 +157,321 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-jQuery3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/10/jQuery3/">jQuery2</a>
+    </h1>
+  
+
+		
+		
+
+
+
+		
+        
+        <a href="/2022/08/10/jQuery3/" class="archive-article-date">
+  	<time datetime="2022-08-10T03:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<ol>
+<li>CSS模块</li>
+</ol>
+<ul>
+<li>style样式<ul>
+<li>css(styleName): 根据样式名得到对应的值</li>
+<li>css(styleName, value): 设置一个样式</li>
+<li>css({多个样式对}): 设置多个样式</li>
+</ul>
+</li>
+<li>位置坐标<ul>
+<li>offset(): 读/写当前元素坐标(原点是页面左上角)</li>
+<li>position(): 读当前元素坐标(原点是父元素左上角)</li>
+<li>scrollTop()/scrollLeft(): 读/写元素/页面的滚动条坐标</li>
+</ul>
+</li>
+<li>尺寸<ul>
+<li>width()/height(): width/height</li>
+<li>innerWidth()/innerHeight(): width + padding</li>
+<li>outerWidth()/outerHeight(): width + padding + border</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>筛选模块</li>
+</ol>
+<ul>
+<li>过滤<ul>
+<li>在jQuery对象内部的元素中找出部分匹配的元素, 并封装成新的jQuery对象返回</li>
+<li>first()</li>
+<li>last()</li>
+<li>eq(index)</li>
+<li>filter(selector): 对当前元素提要求</li>
+<li>not(selector): 对当前元素提要求, 并取反</li>
+<li>has(selector): 对子孙元素提要求</li>
+</ul>
+</li>
+<li>查找<ul>
+<li>查找jQuery对象内部的元素的子孙/兄弟/父母元素, 并封装成新的jQuery对象返回</li>
+<li>children(selector): 子元素</li>
+<li>find(selector): 后代元素</li>
+<li>preAll(selector): 前的所有兄弟</li>
+<li>siblings(selector): 所有兄弟</li>
+<li>parent(): 父元素</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>文档处理(CUD)模块</li>
+</ol>
+<ul>
+<li>增加<ul>
+<li>append() / appendTo(): 插入后部</li>
+<li>preppend() / preppendTo(): 插入前部</li>
+<li>before(): 插到前面</li>
+<li>after(): 插到后面</li>
+</ul>
+</li>
+<li>删除<ul>
+<li>remove(): 将自己及内部的孩子都删除</li>
+<li>empty(): 掏空(自己还在)</li>
+</ul>
+</li>
+<li>更新<ul>
+<li>replaceWith()</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>事件模块</li>
+</ol>
+<ul>
+<li>绑定事件<ul>
+<li>eventName(function(){})</li>
+<li>on(‘eventName’, function(){})</li>
+<li>常用: click, mouseenter/mouseleave mouseover/mouseout focus/blur</li>
+<li>hover(function(){}, function(){})</li>
+</ul>
+</li>
+<li>解绑事件<ul>
+<li>off(‘eventName’)</li>
+</ul>
+</li>
+<li>事件委托<ul>
+<li>理解: 将子元素的事件委托给父辈元素处理<ul>
+<li>事件监听绑定在父元素上, 但事件发生在子元素上<br>*　事件会冒泡到父元素</li>
+<li>但最终调用的事件回调函数的是子元素: event.target</li>
+</ul>
+</li>
+<li>好处<ul>
+<li>新增的元素没有事件监听</li>
+<li>减少监听的数量(n==&gt;1)</li>
+</ul>
+</li>
+<li>编码<ul>
+<li>delegate(selector, ‘eventName’, function(event){}) // 回调函数中的this是子元素</li>
+<li>undelegate(‘eventName’)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>事件坐标<ul>
+<li>event.offsetX: 原点是当前元素左上角</li>
+<li>event.clientX: 原点是窗口左上角</li>
+<li>event.pageX: 原点是页面左上角</li>
+</ul>
+</li>
+<li>事件相关<ul>
+<li>停止事件冒泡: event.stopPropagation()</li>
+<li>阻止事件的默认行为: event.preventDefault()</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuery//" class="article-tag-list-link color2">jQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/10/jQuery3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jQuery2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/09/jQuery2/">jQuery3</a>
+    </h1>
+  
+
+		
+		
+
+
+
+		
+        
+        <a href="/2022/08/09/jQuery2/" class="archive-article-date">
+  	<time datetime="2022-08-09T03:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<ul>
+<li><p>动画效果</p>
+<ul>
+<li>在一定的时间内, 不断改变元素样式</li>
+<li>slideDown()/slideUp()/slideToggle()</li>
+<li>fadeOut()/fadeIn()/fadeToggle()</li>
+<li>show()/hide()/toggle()</li>
+<li>animate({结束时的样式}, time, fun)</li>
+<li>stop()</li>
+</ul>
+</li>
+<li><p>插件机制</p>
+<ul>
+<li>扩展jQuery函数对象的方法<br>$.extend({<br>  xxx: fuction () {} // this是$<br>})<br>$.xxx()</li>
+<li>扩展jQuery对象的方法<br>$.fn.extend({<br>  xxx: function(){}  // this是jQuery对象<br>})<br>$obj.xxx()</li>
+</ul>
+</li>
+<li><p>jQuery文档的结构图</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/jQuery//" class="article-tag-list-link color2">jQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/09/jQuery2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-jQuery1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -492,15 +807,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">APS.NET</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
