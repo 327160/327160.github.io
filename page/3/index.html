@@ -64,7 +64,7 @@
 		
 		
 		<nav>
-    总文章数 32
+    总文章数 33
 </nav>
 
 		
@@ -157,6 +157,196 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-03_资源&amp;参数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/20/03_%E8%B5%84%E6%BA%90&%E5%8F%82%E6%95%B0/">H5资源参数</a>
+    </h1>
+  
+
+		
+		
+
+
+
+		
+        
+        <a href="/2022/08/20/03_%E8%B5%84%E6%BA%90&%E5%8F%82%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2022-08-20T03:15:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="http-s8-qhimg-com-share-audio-piano1-a4-mp3"><a href="#http-s8-qhimg-com-share-audio-piano1-a4-mp3" class="headerlink" title="http://s8.qhimg.com/share/audio/piano1/a4.mp3"></a><a target="_blank" rel="noopener" href="http://s8.qhimg.com/share/audio/piano1/a4.mp3">http://s8.qhimg.com/share/audio/piano1/a4.mp3</a></h3><h3 id="http-www-17sucai-com-preview-87827-2017-11-07-video1-video-mp4"><a href="#http-www-17sucai-com-preview-87827-2017-11-07-video1-video-mp4" class="headerlink" title="http://www.17sucai.com/preview/87827/2017-11-07/video1/video.mp4"></a><a target="_blank" rel="noopener" href="http://www.17sucai.com/preview/87827/2017-11-07/video1/video.mp4">http://www.17sucai.com/preview/87827/2017-11-07/video1/video.mp4</a></h3><h3 id="http-www-17sucai-com-preview-501914-2017-08-04-E9-A1-B5-E9-9D-A2-media-mov-bbb-mp4"><a href="#http-www-17sucai-com-preview-501914-2017-08-04-E9-A1-B5-E9-9D-A2-media-mov-bbb-mp4" class="headerlink" title="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4"></a><a target="_blank" rel="noopener" href="http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4">http://www.17sucai.com/preview/501914/2017-08-04/%E9%A1%B5%E9%9D%A2/media/mov_bbb.mp4</a></h3><h3 id="自定义播放器主要参数"><a href="#自定义播放器主要参数" class="headerlink" title="自定义播放器主要参数"></a>自定义播放器主要参数</h3><pre><code>全局背景色：#383838
+底部控制条：25px 高度
+底部控制条背景色:#2A2A2A
+
+主进度条的大小:宽度自适应,两边margin:55 230
+    进度条的高度:3px 背景色:#737373
+    进度条小方块尺寸:宽9 * 高7 ; 背景白色 ; 2px圆角
+</code></pre>
+<p>​	<br>    按钮排的大小:宽55 * 高25<br>        按钮大小:宽9 * 高11</p>
+<p>​		<br>    右侧信息栏的大小:宽230 * 高25<br>        文字部分:宽120<br>            字体大小:12px<br>            颜色:white</p>
+<pre><code>    声音:宽80
+        切换控件:宽20 高25
+            子项:	margin: 7px auto;
+                    width: 12px;
+                    height: 12px;
+                    background: url(images/icon.png) no-repeat;
+                    background-position:0 -34px;
+                    
+                    active:background-position: 0 -46px;
+        进度条:宽60 高25
+
+    全屏:宽30
+          子项:display: inline-block;
+             margin: 7px auto;
+             width: 11px;
+             height: 11px;
+             background: url(images/icon.png) no-repeat;
+             background-position: 0 -58px;
+             
+             active:background-position: 0 -70px;
+</code></pre>
+<h3 id="class操作函数"><a href="#class操作函数" class="headerlink" title="class操作函数"></a>class操作函数</h3><pre><code>function addClass(node,className){
+    var reg=new RegExp("\\b"+className+"\\b");
+    if(!reg.test(node.className)){
+        node.className +=(" "+className); 
+    }
+}
+function removeClass(node,className){
+    if(node.className){
+        var reg=new RegExp("\\b"+className+"\\b");
+        var classes = node.className;
+        node.className=classes.replace(reg,"");
+        if(/^\s*$/g.test(node.className)){
+            node.removeAttribute("class");
+        }
+    }else{
+        node.removeAttribute("class");
+    }
+}
+</code></pre>
+<h3 id="全屏实现"><a href="#全屏实现" class="headerlink" title="全屏实现"></a>全屏实现</h3><pre><code>full.onclick=function() {
+    if(isFullScreen) {
+        isFullScreen = false
+        if (document.exitFullscreen) {  
+            document.exitFullscreen();  
+        }  
+        else if (document.mozCancelFullScreen) {  
+            document.mozCancelFullScreen();  
+        }  
+        else if (document.webkitCancelFullScreen) {  
+            document.webkitCancelFullScreen();  
+        }
+        else if (document.msExitFullscreen) {
+              document.msExitFullscreen();
+        }
+    } else {
+        isFullScreen = true
+        var docElm = document.documentElement;
+        //W3C  
+        if (docElm.requestFullscreen) {  
+            docElm.requestFullscreen();  
+        }
+        //FireFox  
+        else if (docElm.mozRequestFullScreen) {  
+            docElm.mozRequestFullScreen();  
+        }
+        //Chrome等  
+        else if (docElm.webkitRequestFullScreen) {  
+            docElm.webkitRequestFullScreen();  
+        }
+        //IE11
+        else if (docElm.msRequestFullscreen) {
+          docElm.msRequestFullscreen();
+        }
+    }
+}
+</code></pre>
+<h3 id="window10-下环境变量的入口"><a href="#window10-下环境变量的入口" class="headerlink" title="window10 下环境变量的入口"></a>window10 下环境变量的入口</h3><pre><code>控制面板--&gt;选择大图标--&gt;系统--&gt;高级系统设置--&gt;高级--&gt;环境变量
+</code></pre>
+<h3 id="video写法"><a href="#video写法" class="headerlink" title="video写法"></a>video写法</h3><pre><code>&lt;video width="800" height=""&gt;
+    &lt;source src="myvideo.mp4" type="video/mp4"&gt;&lt;/source&gt;
+    &lt;source src="myvideo.ogv" type="video/ogg"&gt;&lt;/source&gt;
+    &lt;source src="myvideo.webm" type="video/webm"&gt;&lt;/source&gt;
+    &lt;object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf"&gt;
+        &lt;param name="movie" value="myvideo.swf" /&gt;
+        &lt;param name="flashvars" value="autostart=true&amp;amp;file=myvideo.swf" /&gt;
+    &lt;/object&gt;
+    当前浏览器不支持 video直接播放，点击这里下载视频： &lt;a href="myvideo.webm"&gt;下载视频&lt;/a&gt;
+&lt;/video&gt;
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/HTML5//" class="article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/20/03_%E8%B5%84%E6%BA%90&%E5%8F%82%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-03_其他新增标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1415,210 +1605,6 @@ RealPlayer 或者 Flash。浏览器很好的整合了这些插件，你完全意
 
 
   
-    <article id="post-jQuery3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/10/jQuery3/">jQuery2</a>
-    </h1>
-  
-
-		
-		
-
-
-
-		
-        
-        <a href="/2022/08/10/jQuery3/" class="archive-article-date">
-  	<time datetime="2022-08-10T03:15:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<ol>
-<li>CSS模块</li>
-</ol>
-<ul>
-<li>style样式<ul>
-<li>css(styleName): 根据样式名得到对应的值</li>
-<li>css(styleName, value): 设置一个样式</li>
-<li>css({多个样式对}): 设置多个样式</li>
-</ul>
-</li>
-<li>位置坐标<ul>
-<li>offset(): 读/写当前元素坐标(原点是页面左上角)</li>
-<li>position(): 读当前元素坐标(原点是父元素左上角)</li>
-<li>scrollTop()/scrollLeft(): 读/写元素/页面的滚动条坐标</li>
-</ul>
-</li>
-<li>尺寸<ul>
-<li>width()/height(): width/height</li>
-<li>innerWidth()/innerHeight(): width + padding</li>
-<li>outerWidth()/outerHeight(): width + padding + border</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>筛选模块</li>
-</ol>
-<ul>
-<li>过滤<ul>
-<li>在jQuery对象内部的元素中找出部分匹配的元素, 并封装成新的jQuery对象返回</li>
-<li>first()</li>
-<li>last()</li>
-<li>eq(index)</li>
-<li>filter(selector): 对当前元素提要求</li>
-<li>not(selector): 对当前元素提要求, 并取反</li>
-<li>has(selector): 对子孙元素提要求</li>
-</ul>
-</li>
-<li>查找<ul>
-<li>查找jQuery对象内部的元素的子孙/兄弟/父母元素, 并封装成新的jQuery对象返回</li>
-<li>children(selector): 子元素</li>
-<li>find(selector): 后代元素</li>
-<li>preAll(selector): 前的所有兄弟</li>
-<li>siblings(selector): 所有兄弟</li>
-<li>parent(): 父元素</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>文档处理(CUD)模块</li>
-</ol>
-<ul>
-<li>增加<ul>
-<li>append() / appendTo(): 插入后部</li>
-<li>preppend() / preppendTo(): 插入前部</li>
-<li>before(): 插到前面</li>
-<li>after(): 插到后面</li>
-</ul>
-</li>
-<li>删除<ul>
-<li>remove(): 将自己及内部的孩子都删除</li>
-<li>empty(): 掏空(自己还在)</li>
-</ul>
-</li>
-<li>更新<ul>
-<li>replaceWith()</li>
-</ul>
-</li>
-</ul>
-<ol start="4">
-<li>事件模块</li>
-</ol>
-<ul>
-<li>绑定事件<ul>
-<li>eventName(function(){})</li>
-<li>on(‘eventName’, function(){})</li>
-<li>常用: click, mouseenter/mouseleave mouseover/mouseout focus/blur</li>
-<li>hover(function(){}, function(){})</li>
-</ul>
-</li>
-<li>解绑事件<ul>
-<li>off(‘eventName’)</li>
-</ul>
-</li>
-<li>事件委托<ul>
-<li>理解: 将子元素的事件委托给父辈元素处理<ul>
-<li>事件监听绑定在父元素上, 但事件发生在子元素上<br>*　事件会冒泡到父元素</li>
-<li>但最终调用的事件回调函数的是子元素: event.target</li>
-</ul>
-</li>
-<li>好处<ul>
-<li>新增的元素没有事件监听</li>
-<li>减少监听的数量(n==&gt;1)</li>
-</ul>
-</li>
-<li>编码<ul>
-<li>delegate(selector, ‘eventName’, function(event){}) // 回调函数中的this是子元素</li>
-<li>undelegate(‘eventName’)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>事件坐标<ul>
-<li>event.offsetX: 原点是当前元素左上角</li>
-<li>event.clientX: 原点是窗口左上角</li>
-<li>event.pageX: 原点是页面左上角</li>
-</ul>
-</li>
-<li>事件相关<ul>
-<li>停止事件冒泡: event.stopPropagation()</li>
-<li>阻止事件的默认行为: event.preventDefault()</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/jQuery//" class="article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/10/jQuery3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
@@ -1731,6 +1717,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
@@ -1739,11 +1729,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
